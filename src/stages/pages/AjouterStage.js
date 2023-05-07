@@ -6,7 +6,8 @@ import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import {
     VALIDATOR_REQUIRE,
-    VALIDATOR_MINLENGTH
+    VALIDATOR_MINLENGTH,
+    VALIDATOR_MAXLENGTH
   } from '../../shared/util/validators';
 
 const AjouterStage = () => {
@@ -53,13 +54,13 @@ const AjouterStage = () => {
       false
     );
   
-    const etudiantSubmitHandler  = async event =>  {
+    const stageSubmitHandler  = async event =>  {
       event.preventDefault();
       console.log(formState.inputs); // send this to the backend!
   
       try {
         const reponseData = await sendRequest(
-          "http://localhost:5000/api/etudiants",
+          "http://localhost:5000/api/stages",
           "POST",
           JSON.stringify({
             nomContact: formState.inputs.nomContact.value,
@@ -86,7 +87,7 @@ const AjouterStage = () => {
     return (
       <React.Fragment>
         <ErrorModal error={error} onClear={clearError}/>
-      <form onSubmit={etudiantSubmitHandler}>
+      <form onSubmit={stageSubmitHandler}>
         <Input
           id="nomContact"
           element="input"
@@ -110,7 +111,7 @@ const AjouterStage = () => {
           element="input"
           type="text"
           label="Téléphone de la personne contact"
-          validators={[VALIDATOR_MINLENGTH(10)]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(10), VALIDATOR_MAXLENGTH(10)]}
           errorText="Entrez un numéro de téléphone valide."
           onInput={inputHandler}
         />

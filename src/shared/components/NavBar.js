@@ -8,6 +8,7 @@ function NavBar() {
             <Link to="/PagesInformatives">Pages Informatives</Link>
             <Link to="/Stages/AjouterStage">Ajouter Stage</Link>
             <Link to="/Stages/StagesDispo">Stages Disponibles</Link>
+            <Link to="/Etudiants/AjouterEtudiant">Ajouter Etudiant</Link>
       </div>
     );
   }
