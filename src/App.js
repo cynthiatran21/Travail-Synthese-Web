@@ -11,6 +11,7 @@ import FAQ from "./pages/pagesInformatives/FAQ";
 import AjouterStage from "./stages/pages/AjouterStage"
 import StagesDispo from "./stages/pages/StagesDispo"
 import AjouterEtudiant from "./etudiants/pages/AjouterEtudiant"
+import Etudiants from "./etudiants/pages/Etudiants"
 
 const App = () => {
   return (
@@ -24,8 +25,9 @@ const App = () => {
         <Route path="/PagesInformatives/DeroulementStagesEtu" exact element={<DeroulementStagesEtu />} />
         <Route path="/PagesInformatives/FAQ" exact element={<FAQ />} />
         <Route path="/Stages/AjouterStage" exact element={<AjouterStage />} />
-        <Route path="/Stages/StagesDispo" exact element={<StagesDispo />} />
+        <Route path="/Stages" exact element={<StagesDispo />} />
         <Route path="/Etudiants/AjouterEtudiant" exact element={<AjouterEtudiant />} />
+        <Route path="/Etudiants" exact element={<Etudiants />} />
       </Routes>
     </Router>
   );
