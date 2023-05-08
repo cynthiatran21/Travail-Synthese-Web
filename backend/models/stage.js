@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const stageSchema = new Schema({
     nomContact:{type: String, required: true},
     courrielContact: {type: String, required: true},

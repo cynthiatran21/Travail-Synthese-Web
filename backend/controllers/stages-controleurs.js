@@ -20,8 +20,6 @@ const ajouterStage = async (requete, reponse, next) => {
   });
 
   try {
-
-    
     await nouvStage.save();
   } catch (err) {
     const erreur = new HttpErreur("Création du stage échouée", 500);

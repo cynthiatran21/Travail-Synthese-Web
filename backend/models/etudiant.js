@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const etudiantSchema = new Schema({
     noDA:{type: String, required: true},
     nomEtudiant: {type: String, required: true},
