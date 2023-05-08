@@ -8,6 +8,21 @@ const Stage = require("../models/stage");
 
 const ajouterStage = async (requete, reponse, next) => {
   const { nomContact, courrielContact, telephoneContact, nomEntreprise, adresseEntreprise, typeStage, nbPostesDispo, description, remuneration } = requete.body;
+  
+  let stageExiste;
+
+  try {
+    stageExiste = await Stage.findOne({ nomEntreprise: nomEntreprise,  typeStage: typeStage, description: description});
+  } catch {
+    return next(new HttpErreur("Échec vérification stage existe", 500));
+  }
+
+  if (stageExiste) {
+    return next(
+      new HttpErreur("Le stage existe déjà", 422)
+    );
+  }
+  
   const nouvStage = new Stage({
     nomContact,
     courrielContact,
