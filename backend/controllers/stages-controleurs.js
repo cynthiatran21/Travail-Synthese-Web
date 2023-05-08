@@ -7,10 +7,11 @@ const HttpErreur = require("../models/http-erreur");
 const Stage = require("../models/stage");
 
 const ajouterStage = async (requete, reponse, next) => {
-  const { nomContact, courrielContact, nomEntreprise, adresseEntreprise, typeStage, nbPostesDispo, description, remuneration } = requete.body;
+  const { nomContact, courrielContact, telephoneContact, nomEntreprise, adresseEntreprise, typeStage, nbPostesDispo, description, remuneration } = requete.body;
   const nouvStage = new Stage({
     nomContact,
     courrielContact,
+    telephoneContact,
     nomEntreprise,
     adresseEntreprise,
     typeStage,
@@ -23,6 +24,7 @@ const ajouterStage = async (requete, reponse, next) => {
     await nouvStage.save();
   } catch (err) {
     const erreur = new HttpErreur("Création du stage échouée", 500);
+    console.log(err)
     return next(erreur);
   }
   reponse.status(201).json({ stage: nouvStage });

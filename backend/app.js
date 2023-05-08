@@ -36,7 +36,7 @@ app.use((error, requete, reponse, next) => {
 });
 
 mongoose
-.connect("mongodb://127.0.0.1:27017/mern")
+.connect("mongodb://127.0.0.1:27017")
 .then(() => {
     app.listen(5000)
     console.log("Connexion à la base de données réussie");

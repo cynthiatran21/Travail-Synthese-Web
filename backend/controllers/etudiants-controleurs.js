@@ -23,7 +23,7 @@ const ajouterEtudiant = async (requete, reponse, next) => {
     );
   }
 
-  let nouvEtudiant = new Utilisateur({
+  let nouvEtudiant = new Etudiant({
     noDA,
     nomEtudiant,
     courrielEtudiant,

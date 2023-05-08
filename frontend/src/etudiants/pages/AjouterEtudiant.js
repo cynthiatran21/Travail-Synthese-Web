@@ -28,7 +28,7 @@ const AjouterEtudiant = () => {
         },
         profilSortie: {
             value: '',
-            isValid: false
+            isValid: true
           }
       },
       false
@@ -40,7 +40,7 @@ const AjouterEtudiant = () => {
   
       try {
         const reponseData = await sendRequest(
-          "http://localhost:5000/api/etudiants",
+          "http://localhost:27017/api/etudiants",
           "POST",
           JSON.stringify({
             noDA: formState.inputs.noDA.value,
@@ -90,15 +90,15 @@ const AjouterEtudiant = () => {
           errorText="Entrez un courriel valide."
           onInput={inputHandler}
         />
-        <Input
+        <select
           id="profilSortie"
-          element="input"
-          type="text"
           label="Profil de sortie de l'étudiant"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Entrez un profil de sortie valide."
-          onInput={inputHandler}
-        />
+          errorText="Sélectionnez un profil de sortie."
+          onChange={inputHandler}
+        >
+          <option>Réseaux et sécurité</option>
+          <option>Développement d'applications</option>
+        </select>
 
         <Button type="submit" disabled={!formState.isValid}>
           Ajouter l'étudiant
