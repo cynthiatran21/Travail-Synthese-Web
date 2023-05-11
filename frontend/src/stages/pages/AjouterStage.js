@@ -8,6 +8,8 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_MAXLENGTH,
+  VALIDATOR_EMAIL,
+  VALIDATOR_COMBOBOX_TYPE_STAGE
 } from "../../shared/util/validators";
 
 const AjouterStage = () => {
@@ -36,7 +38,7 @@ const AjouterStage = () => {
       },
       typeStage: {
         value: "",
-        isValid: true,
+        isValid: false,
       },
       nbPostesDispo: {
         value: "",
@@ -133,19 +135,23 @@ const AjouterStage = () => {
           element="input"
           type="text"
           label="Adresse de l'entreprise: "
-          validators={[VALIDATOR_REQUIRE()]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL]}
           errorText="Entrez une adresse valide."
           onInput={inputHandler}
         />
         <label>Type de stage: </label>
-        <select
+        <Input
           id="typeStage"
+          element="input"
+          type="text"
           errorText="Sélectionnez un type de stage."
-          onChange={inputHandler}
+          onInput={inputHandler}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_COMBOBOX_TYPE_STAGE()]}
         >
-          <option>Réseaux et sécurité</option>
-          <option>Développement d'applications</option>
-        </select>
+          {/*<option value="Sélectionnez un type de stage">Sélectionnez un type de stage</option>
+          <option value="Réseaux et sécurité">Réseaux et sécurité</option>
+        <option value="Développement d'applications">Développement d'applications</option>*/}</Input>
+        
         <Input
           id="nbPostesDispo"
           element="input"
@@ -169,6 +175,7 @@ const AjouterStage = () => {
           id="remuneration"
           errorText="Sélectionnez un type de rémunération."
           onChange={inputHandler}
+          validators={[VALIDATOR_REQUIRE()]}
         >
           <option>Salaire horaire</option>
           <option>Montant unique pour le stage</option>
