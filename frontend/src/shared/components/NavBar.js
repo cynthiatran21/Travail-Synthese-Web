@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo_momo.png";
 
 function NavBar() {
     return (
       <div>
+            <Link to="/">
+            <img src={logo} alt={logo}></img>
+            </Link>
             <Link to="/">Page d'accueil</Link>
             <Link to="/PagesInformatives">Pages Informatives</Link>
             <Link to="/Stages/AjouterStage">Ajouter Stage</Link>
@@ -15,4 +19,3 @@ function NavBar() {
   }
   
   export default NavBar;
-  

@@ -12,6 +12,7 @@ import AjouterStage from "./stages/pages/AjouterStage"
 import StagesDispo from "./stages/pages/StagesDispo"
 import AjouterEtudiant from "./etudiants/pages/AjouterEtudiant"
 import Etudiants from "./etudiants/pages/Etudiants"
+import Footer from "./shared/components/Footer";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/Etudiants/AjouterEtudiant" exact element={<AjouterEtudiant />} />
         <Route path="/Etudiants" exact element={<Etudiants />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
