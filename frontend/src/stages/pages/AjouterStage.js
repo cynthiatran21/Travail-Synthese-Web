@@ -140,18 +140,17 @@ const AjouterStage = () => {
           onInput={inputHandler}
         />
         <label>Type de stage: </label>
-        <Input
+        <select
+          defaultValue="Sélectionnez un type de stage"
           id="typeStage"
-          element="input"
-          type="text"
           errorText="Sélectionnez un type de stage."
-          onInput={inputHandler}
-          validators={[VALIDATOR_REQUIRE(), VALIDATOR_COMBOBOX_TYPE_STAGE()]}
+          onSelect={inputHandler}
+          validators={[VALIDATOR_COMBOBOX_TYPE_STAGE()]}
         >
-          {/*<option value="Sélectionnez un type de stage">Sélectionnez un type de stage</option>
+          <option value="Sélectionnez un type de stage">Sélectionnez un type de stage</option>
           <option value="Réseaux et sécurité">Réseaux et sécurité</option>
-        <option value="Développement d'applications">Développement d'applications</option>*/}</Input>
-        
+          <option value="Développement d'applications">Développement d'applications</option>
+        </select>
         <Input
           id="nbPostesDispo"
           element="input"

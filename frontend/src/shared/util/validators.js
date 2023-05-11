@@ -6,6 +6,7 @@ const VALIDATOR_TYPE_MAX = 'MAX';
 const VALIDATOR_TYPE_EMAIL = 'EMAIL';
 const VALIDATOR_TYPE_FILE = 'FILE';
 const VALIDATOR_TYPE_COMBOBOX_TYPE_STAGE = 'COMBOBOX_TYPE_STAGE';
+const VALIDATOR_TYPE_COMBOBOX_TYPE_RENUMERATION = 'COMBOBOX_TYPE_RENUMERATION';
 
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
 export const VALIDATOR_FILE = () => ({ type: VALIDATOR_TYPE_FILE });
@@ -21,6 +22,7 @@ export const VALIDATOR_MIN = val => ({ type: VALIDATOR_TYPE_MIN, val: val });
 export const VALIDATOR_MAX = val => ({ type: VALIDATOR_TYPE_MAX, val: val });
 export const VALIDATOR_EMAIL = () => ({ type: VALIDATOR_TYPE_EMAIL });
 export const VALIDATOR_COMBOBOX_TYPE_STAGE = val => ({ type: VALIDATOR_TYPE_COMBOBOX_TYPE_STAGE, val: val });
+export const VALIDATOR_COMBOBOX_TYPE_RENUMERATION = val => ({ type: VALIDATOR_TYPE_COMBOBOX_TYPE_RENUMERATION, val: val });
 
 export const validate = (value, validators) => {
   let isValid = true;
@@ -44,8 +46,10 @@ export const validate = (value, validators) => {
       isValid = isValid && /^\S+@\S+\.\S+$/.test(value);
     }
     if (validator.type === VALIDATOR_TYPE_COMBOBOX_TYPE_STAGE) {
-      {/*isValid = isValid && (value.toString().trim.length < 1);*/}
       isValid = isValid && (value === "Réseaux et sécurité" || value === "Développement d'applications");
+    }
+    if (validator.type === VALIDATOR_TYPE_COMBOBOX_TYPE_RENUMERATION) {
+      isValid = isValid && (value === "Salaire horaire" || value === "Montant unique" || value === "Aucune");
     }
 
   }
