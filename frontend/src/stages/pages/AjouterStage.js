@@ -60,7 +60,7 @@ const AjouterStage = () => {
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:27017/api/stages",
+        "http://localhost:5000/api/stages",
         "POST",
         JSON.stringify({
           nomContact: formState.inputs.nomContact.value,
@@ -92,7 +92,7 @@ const AjouterStage = () => {
           id="nomContact"
           element="input"
           type="text"
-          label="Nom de la personne contact"
+          label="Nom de la personne contact: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un nom valide."
           onInput={inputHandler}
@@ -101,7 +101,7 @@ const AjouterStage = () => {
           id="courrielContact"
           element="input"
           type="text"
-          label="Courriel de la personne contact"
+          label="Courriel de la personne contact: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un nom valide."
           onInput={inputHandler}
@@ -110,7 +110,7 @@ const AjouterStage = () => {
           id="telephoneContact"
           element="input"
           type="text"
-          label="Téléphone de la personne contact"
+          label="Téléphone de la personne contact: "
           validators={[
             VALIDATOR_REQUIRE(),
             VALIDATOR_MINLENGTH(10),
@@ -123,7 +123,7 @@ const AjouterStage = () => {
           id="nomEntreprise"
           element="input"
           type="text"
-          label="Nom de l'entreprise"
+          label="Nom de l'entreprise: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un nom valide."
           onInput={inputHandler}
@@ -132,14 +132,14 @@ const AjouterStage = () => {
           id="adresseEntreprise"
           element="input"
           type="text"
-          label="Adresse de l'entreprise"
+          label="Adresse de l'entreprise: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez une adresse valide."
           onInput={inputHandler}
         />
+        <label>Type de stage: </label>
         <select
           id="typeStage"
-          label="Type de stage"
           errorText="Sélectionnez un type de stage."
           onChange={inputHandler}
         >
@@ -149,8 +149,8 @@ const AjouterStage = () => {
         <Input
           id="nbPostesDispo"
           element="input"
-          type="text"
-          label="Nombre de postes disponibles"
+          type="number"
+          label="Nombre de postes disponibles: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un nombre valide."
           onInput={inputHandler}
@@ -159,14 +159,14 @@ const AjouterStage = () => {
           id="description"
           element="input"
           type="text"
-          label="Description du stage"
+          label="Description du stage: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez une description valide."
           onInput={inputHandler}
         />
+        <label>Rémunération: </label>
         <select
           id="remuneration"
-          label="Rémunération"
           errorText="Sélectionnez un type de rémunération."
           onChange={inputHandler}
         >
@@ -174,7 +174,7 @@ const AjouterStage = () => {
           <option>Montant unique pour le stage</option>
           <option>Aucune rémunération</option>
         </select>
-
+<br></br>
         <Button type="submit" disabled={!formState.isValid}>
           Ajouter le stage
         </Button>

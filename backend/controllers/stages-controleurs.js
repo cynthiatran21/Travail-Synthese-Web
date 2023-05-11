@@ -32,7 +32,8 @@ const ajouterStage = async (requete, reponse, next) => {
     typeStage,
     nbPostesDispo,
     description,
-    remuneration
+    remuneration,
+    stagiaires: []
   });
 
   try {

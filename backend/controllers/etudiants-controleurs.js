@@ -27,7 +27,8 @@ const ajouterEtudiant = async (requete, reponse, next) => {
     noDA,
     nomEtudiant,
     courrielEtudiant,
-    profilSortie
+    profilSortie,
+    stage: ''
   });
 
   try {

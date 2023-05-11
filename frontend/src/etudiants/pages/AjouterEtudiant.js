@@ -29,7 +29,7 @@ const AjouterEtudiant = () => {
         profilSortie: {
             value: '',
             isValid: true
-          }
+        }
       },
       false
     );
@@ -67,7 +67,7 @@ const AjouterEtudiant = () => {
           id="noDA"
           element="input"
           type="text"
-          label="Numéro de DA de l'étudiant"
+          label="Numéro de DA de l'étudiant: "
           validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(10), VALIDATOR_MAXLENGTH(10)]}
           errorText="Entrez un numéro de DA valide."
           onInput={inputHandler}
@@ -76,7 +76,7 @@ const AjouterEtudiant = () => {
           id="nomEtudiant"
           element="input"
           type="text"
-          label="Nom de l'étudiant"
+          label="Nom de l'étudiant: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un nom valide."
           onInput={inputHandler}
@@ -85,14 +85,14 @@ const AjouterEtudiant = () => {
           id="courrielEtudiant"
           element="input"
           type="text"
-          label="Courriel de l'étudiant"
+          label="Courriel de l'étudiant: "
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez un courriel valide."
           onInput={inputHandler}
         />
+        <label>Profil de sortie de l'étudiant: </label>
         <select
           id="profilSortie"
-          label="Profil de sortie de l'étudiant"
           errorText="Sélectionnez un profil de sortie."
           onChange={inputHandler}
         >
@@ -100,6 +100,7 @@ const AjouterEtudiant = () => {
           <option>Développement d'applications</option>
         </select>
 
+<br></br>
         <Button type="submit" disabled={!formState.isValid}>
           Ajouter l'étudiant
         </Button>
