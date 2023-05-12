@@ -1,11 +1,10 @@
 import React from 'react';
-
 import Card from '../../shared/components/UIElements/Card';
 import StageDispoItem from './StageDispoItem';
 import Button from '../../shared/components/FormElements/Button';
 
-const StageDispoList = props => {
-  if (props.items.length === 0) {
+function StageDispoList ({profilsCibles}) {
+  if (profilsCibles.length === 0) {
     return (
       <div>
         <Card>
@@ -18,7 +17,8 @@ const StageDispoList = props => {
 
   return (
     <ul>
-      {props.items.map(stage => (
+      {profilsCibles.items.map((stage, index) => (
+        <Card key={index}>
         <StageDispoItem
           key={stage.id}
           nomContact={stage.nomContact}
@@ -29,6 +29,7 @@ const StageDispoList = props => {
           nbPostesDispo={stage.nbPostesDispo}
           description={stage.description}
         />
+        </Card>
       ))}
     </ul>
   );

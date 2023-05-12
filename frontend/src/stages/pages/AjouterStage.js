@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import Modal from '../../shared/components/UIElements/Modal';
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
 import {
@@ -13,6 +13,13 @@ import {
 
 const AjouterStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
+
+  const [ajoutFonctionne, setAjoutFonctionne] = useState(true)
+  const [show, setShow] = useState(false)
+
+
+
+
   const [formState, inputHandler] = useForm(
     {
       nomContact: {
@@ -55,6 +62,7 @@ const AjouterStage = () => {
     false
   );
 
+
   const stageSubmitHandler = async (event) => {
     event.preventDefault();
     console.log(formState.inputs);
@@ -84,15 +92,17 @@ const AjouterStage = () => {
         }
       );
 
+      setAjoutFonctionne(true);
+      console.log(ajoutFonctionne + "devrait changer")
       console.log(reponseData);
     } catch (err) {
+      setAjoutFonctionne(false)
       console.log(err);
     }
   };
 
   return (
-    <React.Fragment>
-      <ErrorModal error={error} onClear={clearError} />
+    <React.Fragment>      
       <form onSubmit={stageSubmitHandler} id="idForm">
         <Input
           id="nomContact"
@@ -183,10 +193,32 @@ const AjouterStage = () => {
         </select>
 
         <br></br>
-        <Button type="submit" disabled={!formState.isValid}>
-          Ajouter le stage
-        </Button>
+        <div>
+          <Button type="submit" disabled={!formState.isValid}  onClick={()=> setShow(true)}>
+            Ajouter le stage
+          </Button>
+          
+        </div>
       </form>
+
+      {console.log(ajoutFonctionne)}
+      {ajoutFonctionne
+       ?<Modal title="Ajout réussi" onClose={() => setShow(false)} show={show}>
+          <p>L'ajout a fonctionné</p>
+       </Modal>
+
+
+       :<Modal title="Ajout échoué" onClose={() => setShow(false)} show={show}>
+       <p>L'ajout a échoué</p>
+    </Modal>
+      
+    
+      }
+
+
+      
+
+     
     </React.Fragment>
   );
 };
