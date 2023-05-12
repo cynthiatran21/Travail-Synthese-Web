@@ -8,7 +8,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_MAXLENGTH,
-  VALIDATOR_EMAIL
+  VALIDATOR_EMAIL,
 } from "../../shared/util/validators";
 
 const AjouterStage = () => {
@@ -55,12 +55,17 @@ const AjouterStage = () => {
     false
   );
 
-  function check()
-{
-  console.log("remuneration: ", document.querySelector("#remuneration").value);
-  console.log("typeStage: ", document.querySelector("#typeStage").value);
-  return document.querySelector("#remuneration").value === "" || document.querySelector("#typeStage").value === ""
-}
+  function check() {
+    console.log(
+      "remuneration: ",
+      document.querySelector("#remuneration").value
+    );
+    console.log("typeStage: ", document.querySelector("#typeStage").value);
+    return (
+      document.querySelector("#remuneration").value === "" ||
+      document.querySelector("#typeStage").value === ""
+    );
+  }
 
   const stageSubmitHandler = async (event) => {
     event.preventDefault();
@@ -68,11 +73,13 @@ const AjouterStage = () => {
 
     try {
       // console.log("Remuneration: ", formState.inputs.remuneration.value)
-       //console.log("typeStage: ", document.querySelector("#typeStage").value)
-       //console.log("Remuneration: ", document.querySelector("#remuneration").value)
-      formState.inputs.typeStage.value = document.querySelector("#typeStage").value
-      formState.inputs.remuneration.value = document.querySelector("#remuneration").value
-      
+      //console.log("typeStage: ", document.querySelector("#typeStage").value)
+      //console.log("Remuneration: ", document.querySelector("#remuneration").value)
+      formState.inputs.typeStage.value =
+        document.querySelector("#typeStage").value;
+      formState.inputs.remuneration.value =
+        document.querySelector("#remuneration").value;
+
       const reponseData = await sendRequest(
         "http://localhost:5000/api/stages",
         "POST",
@@ -155,14 +162,15 @@ const AjouterStage = () => {
         <select
           //defaultValue="Sélectionnez un type de stage"
           id="typeStage"
-          errorText="Sélectionnez un type de stage."
           //onChange={inputHandler}
           //onSelect={inputHandler}
           //validators={[VALIDATOR_REQUIRE()]}
         >
           {/* <option value="">Sélectionnez un type de stage</option> */}
           <option value="Réseaux et sécurité">Réseaux et sécurité</option>
-          <option value="Développement d'applications">Développement d'applications</option>
+          <option value="Développement d'applications">
+            Développement d'applications
+          </option>
         </select>
         <Input
           id="nbPostesDispo"
@@ -186,13 +194,14 @@ const AjouterStage = () => {
         <label>Rémunération: </label>
         <select
           id="remuneration"
-          errorText="Sélectionnez un type de rémunération."
           //onChange={inputHandler}
           //validators={[VALIDATOR_REQUIRE()]}
         >
           {/* <option value="">Choix</option> */}
           <option value="Salaire horaire">Salaire horaire</option>
-          <option value="Montant unique pour le stage">Montant unique pour le stage</option>
+          <option value="Montant unique pour le stage">
+            Montant unique pour le stage
+          </option>
           <option value="Aucune rémunération">Aucune rémunération</option>
         </select>
 
