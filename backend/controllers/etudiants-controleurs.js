@@ -45,7 +45,7 @@ const ajouterEtudiant = async (requete, reponse, next) => {
 
 
 const assignerStage = async (requete, reponse, next) => {
-  const { nomContact, courrielContact, nomEntreprise, typeStage } = requete.body;
+  const { nomContact, courrielContact, nomEntreprise, adresseEntreprise, typeStage, nbPostesDispo, description } = requete.body;
   const etudiantId = requete.params.etudiantId;
 
   let etudiant;
@@ -59,15 +59,24 @@ const assignerStage = async (requete, reponse, next) => {
   }
 
   try{
-    if (etudiant.stage.length === 0) {
-      next(
+    if (etudiant.stage.length !== 0) {
+      return next(
         new HttpErreur("L'étudiant est déjà assigné un stage", 500)
       );
     } else {
       let stage;
-      stage = await Stage.findOne({ nomContact: nomContact, courrielContact: courrielContact, nomEntreprise: nomEntreprise,  typeStage: typeStage })
+      stage = await Stage.findOne({ nomContact: nomContact, courrielContact: courrielContact, nomEntreprise: nomEntreprise, adresseEntreprise: adresseEntreprise, typeStage: typeStage, nbPostesDispo: nbPostesDispo, description: description })
+      
+      if (stage.nbPostesDispo > stage.stagiaires.length){
       etudiant.stage.push(stage);
+      stage.stagiaires.push(etudiant);
       await etudiant.save();
+      await stage.save();
+      } else {
+        return next(
+          new HttpErreur("Il n'y a plus de place disponible pour ce stage", 500)
+        );
+      }
     }
   } catch (err){
     console.log(err);
