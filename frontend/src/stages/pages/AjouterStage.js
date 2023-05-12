@@ -55,26 +55,11 @@ const AjouterStage = () => {
     false
   );
 
-  function check() {
-    console.log(
-      "remuneration: ",
-      document.querySelector("#remuneration").value
-    );
-    console.log("typeStage: ", document.querySelector("#typeStage").value);
-    return (
-      document.querySelector("#remuneration").value === "" ||
-      document.querySelector("#typeStage").value === ""
-    );
-  }
-
   const stageSubmitHandler = async (event) => {
     event.preventDefault();
     console.log(formState.inputs);
 
     try {
-      // console.log("Remuneration: ", formState.inputs.remuneration.value)
-      //console.log("typeStage: ", document.querySelector("#typeStage").value)
-      //console.log("Remuneration: ", document.querySelector("#remuneration").value)
       formState.inputs.typeStage.value =
         document.querySelector("#typeStage").value;
       formState.inputs.remuneration.value =
@@ -160,13 +145,8 @@ const AjouterStage = () => {
         />
         <label>Type de stage: </label>
         <select
-          //defaultValue="Sélectionnez un type de stage"
           id="typeStage"
-          //onChange={inputHandler}
-          //onSelect={inputHandler}
-          //validators={[VALIDATOR_REQUIRE()]}
         >
-          {/* <option value="">Sélectionnez un type de stage</option> */}
           <option value="Réseaux et sécurité">Réseaux et sécurité</option>
           <option value="Développement d'applications">
             Développement d'applications
@@ -194,10 +174,7 @@ const AjouterStage = () => {
         <label>Rémunération: </label>
         <select
           id="remuneration"
-          //onChange={inputHandler}
-          //validators={[VALIDATOR_REQUIRE()]}
         >
-          {/* <option value="">Choix</option> */}
           <option value="Salaire horaire">Salaire horaire</option>
           <option value="Montant unique pour le stage">
             Montant unique pour le stage
