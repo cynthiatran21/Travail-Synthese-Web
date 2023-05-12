@@ -209,7 +209,7 @@ const AjouterStage = () => {
 
 
        :<Modal title="Ajout échoué" onClose={() => setShow(false)} show={show}>
-       <p>L'ajout a échoué Contacter le coordo</p>
+       <p>L'ajout a échoué. Veuillez contacter le superviseur des stages Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca</p>
     </Modal>
       
     
