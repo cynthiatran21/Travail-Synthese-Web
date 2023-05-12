@@ -8,8 +8,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_MAXLENGTH,
-  VALIDATOR_EMAIL,
-  VALIDATOR_COMBOBOX_TYPE_STAGE
+  VALIDATOR_EMAIL
 } from "../../shared/util/validators";
 
 const AjouterStage = () => {
@@ -38,7 +37,7 @@ const AjouterStage = () => {
       },
       typeStage: {
         value: "",
-        isValid: false,
+        isValid: true,
       },
       nbPostesDispo: {
         value: "",
@@ -56,11 +55,24 @@ const AjouterStage = () => {
     false
   );
 
+  function check()
+{
+  console.log("remuneration: ", document.querySelector("#remuneration").value);
+  console.log("typeStage: ", document.querySelector("#typeStage").value);
+  return document.querySelector("#remuneration").value === "" || document.querySelector("#typeStage").value === ""
+}
+
   const stageSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(formState.inputs); // send this to the backend!
+    console.log(formState.inputs);
 
     try {
+      // console.log("Remuneration: ", formState.inputs.remuneration.value)
+       //console.log("typeStage: ", document.querySelector("#typeStage").value)
+       //console.log("Remuneration: ", document.querySelector("#remuneration").value)
+      formState.inputs.typeStage.value = document.querySelector("#typeStage").value
+      formState.inputs.remuneration.value = document.querySelector("#remuneration").value
+      
       const reponseData = await sendRequest(
         "http://localhost:5000/api/stages",
         "POST",
@@ -70,10 +82,10 @@ const AjouterStage = () => {
           telephoneContact: formState.inputs.telephoneContact.value,
           nomEntreprise: formState.inputs.nomEntreprise.value,
           adresseEntreprise: formState.inputs.adresseEntreprise.value,
-          typeStage: formState.inputs.typeStage.value,
+          typeStage: document.querySelector("#typeStage").value,
           nbPostesDispo: formState.inputs.nbPostesDispo.value,
           description: formState.inputs.description.value,
-          remuneration: formState.inputs.remuneration.value,
+          remuneration: document.querySelector("#remuneration").value,
         }),
         {
           "Content-Type": "application/json",
@@ -89,7 +101,7 @@ const AjouterStage = () => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <form onSubmit={stageSubmitHandler}>
+      <form onSubmit={stageSubmitHandler} id="idForm">
         <Input
           id="nomContact"
           element="input"
@@ -104,7 +116,7 @@ const AjouterStage = () => {
           element="input"
           type="text"
           label="Courriel de la personne contact: "
-          validators={[VALIDATOR_REQUIRE()]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
           errorText="Entrez un nom valide."
           onInput={inputHandler}
         />
@@ -135,19 +147,20 @@ const AjouterStage = () => {
           element="input"
           type="text"
           label="Adresse de l'entreprise: "
-          validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL]}
+          validators={[VALIDATOR_REQUIRE()]}
           errorText="Entrez une adresse valide."
           onInput={inputHandler}
         />
         <label>Type de stage: </label>
         <select
-          defaultValue="Sélectionnez un type de stage"
+          //defaultValue="Sélectionnez un type de stage"
           id="typeStage"
           errorText="Sélectionnez un type de stage."
-          onSelect={inputHandler}
-          validators={[VALIDATOR_COMBOBOX_TYPE_STAGE()]}
+          //onChange={inputHandler}
+          //onSelect={inputHandler}
+          //validators={[VALIDATOR_REQUIRE()]}
         >
-          <option value="Sélectionnez un type de stage">Sélectionnez un type de stage</option>
+          {/* <option value="">Sélectionnez un type de stage</option> */}
           <option value="Réseaux et sécurité">Réseaux et sécurité</option>
           <option value="Développement d'applications">Développement d'applications</option>
         </select>
@@ -169,18 +182,21 @@ const AjouterStage = () => {
           errorText="Entrez une description valide."
           onInput={inputHandler}
         />
+
         <label>Rémunération: </label>
         <select
           id="remuneration"
           errorText="Sélectionnez un type de rémunération."
-          onChange={inputHandler}
-          validators={[VALIDATOR_REQUIRE()]}
+          //onChange={inputHandler}
+          //validators={[VALIDATOR_REQUIRE()]}
         >
-          <option>Salaire horaire</option>
-          <option>Montant unique pour le stage</option>
-          <option>Aucune rémunération</option>
+          {/* <option value="">Choix</option> */}
+          <option value="Salaire horaire">Salaire horaire</option>
+          <option value="Montant unique pour le stage">Montant unique pour le stage</option>
+          <option value="Aucune rémunération">Aucune rémunération</option>
         </select>
-<br></br>
+
+        <br></br>
         <Button type="submit" disabled={!formState.isValid}>
           Ajouter le stage
         </Button>

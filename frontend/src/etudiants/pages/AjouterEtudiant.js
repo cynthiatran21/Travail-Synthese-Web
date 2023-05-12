@@ -93,7 +93,6 @@ const AjouterEtudiant = () => {
         <label>Profil de sortie de l'étudiant: </label>
         <select
           id="profilSortie"
-          errorText="Sélectionnez un profil de sortie."
           onChange={inputHandler}
         >
           <option>Réseaux et sécurité</option>
