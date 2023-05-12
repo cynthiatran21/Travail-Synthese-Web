@@ -1,5 +1,5 @@
 const { response } = require("express");
-const { default: mongoose, mongo } = require("mongoose");
+const { default: mongoose, mongo, get } = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 
 const HttpErreur = require("../models/http-erreur");
@@ -41,6 +41,21 @@ const ajouterEtudiant = async (requete, reponse, next) => {
   reponse
     .status(201)
     .json({ etudiant: nouvEtudiant.toObject({ getter: true }) });
+};
+
+
+const getEtudiants = async (requete, reponse, next) => {
+  let etudiants;
+
+  try {
+    etudiants = await Etudiant.findOne({ noDA: noDA });
+  } catch {
+    return next(new HttpErreur("Échec vérification etudiant existe", 500));
+  }
+
+  reponse.status(201).json({ 
+    etudiants: etudiants.map((etudiant) => 
+    etudiant.toObject({getters: true})) });
 };
 
 
@@ -90,3 +105,4 @@ const assignerStage = async (requete, reponse, next) => {
 
 exports.ajouterEtudiant = ajouterEtudiant;
 exports.assignerStage = assignerStage;
+exports.getEtudiants = getEtudiants;

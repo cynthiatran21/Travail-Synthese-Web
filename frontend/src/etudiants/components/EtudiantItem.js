@@ -5,7 +5,7 @@ import Card from '../../shared/components/UIElements/Card';
 const EtudiantItem = props => {
   return (
     <React.Fragment>
-      <li>
+      <li className="etudiant-item">
         <Card>
           <div>
             <h2>{props.noDA}</h2>

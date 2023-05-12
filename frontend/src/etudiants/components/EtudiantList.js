@@ -5,6 +5,7 @@ import EtudiantItem from './EtudiantItem';
 import Button from '../../shared/components/FormElements/Button';
 
 const EtudiantList = props => {
+  console.log(props);
   if (props.items.length === 0) {
     return (
       <div>
