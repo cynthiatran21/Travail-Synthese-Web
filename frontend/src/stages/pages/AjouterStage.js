@@ -209,7 +209,7 @@ const AjouterStage = () => {
 
 
        :<Modal title="Ajout échoué" onClose={() => setShow(false)} show={show}>
-       <p>L'ajout a échoué</p>
+       <p>L'ajout a échoué Contacter le coordo</p>
     </Modal>
       
     
