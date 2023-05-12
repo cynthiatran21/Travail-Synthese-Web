@@ -2,21 +2,26 @@ import React, { useState, useEffect } from 'react';
 import StageDispoList from "../components/StageDispoList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
-const StageDispo = () => {
+const StagesDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
-  const [stagesDispo, setStagesDispo] = useState();
+  const [stagesDispo, setStagesDispo] = useState([]);
+
+  const fetchStagesDispo = () => {
+    fetch("http://localhost:5000/api/stages")
+  }
 
   useEffect(() => {
     const recupererStages = async () => {
       try{
         const reponseData = await sendRequest("http://localhost:5000/api/stages")
-        setStagesDispo(reponseData.staagesDispo);
+        setStagesDispo(reponseData.stagesDispo);
       } catch (err) {
         
       }
     };
     recupererStages();
   }, [sendRequest]);
+  
   
   const [profilFiltre, setProfilFiltre] = useState("Tout");
 
@@ -29,7 +34,7 @@ const StageDispo = () => {
       ? stagesDispo
       : stagesDispo.filter(
           (stagesDispo) => stagesDispo.profilSortie === profilFiltre
-        );
+      );
 
     return (
           <div>
@@ -47,4 +52,4 @@ const StageDispo = () => {
       );
     };
 
-export default StageDispo;
+export default StagesDispo;

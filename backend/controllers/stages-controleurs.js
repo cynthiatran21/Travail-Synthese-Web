@@ -6,6 +6,24 @@ const HttpErreur = require("../models/http-erreur");
 
 const Stage = require("../models/stage");
 
+const getStages = async (requete, reponse, next) => {
+  //let profilSortie = requete.params.profilSortie;
+  let stages;
+
+  try {
+    stages = await Stage.find({});
+  } catch (err){
+    console.log(err)
+    return next(new HttpErreur("Erreur accès stages"), 500);
+  }
+
+  reponse.json({
+    stages: stages.map((stage) =>
+      stage.toObject({ getters: true })
+    ),
+  });
+}
+
 const ajouterStage = async (requete, reponse, next) => {
   const { nomContact, courrielContact, telephoneContact, nomEntreprise, adresseEntreprise, typeStage, nbPostesDispo, description, remuneration } = requete.body;
   
@@ -46,4 +64,5 @@ const ajouterStage = async (requete, reponse, next) => {
   reponse.status(201).json({ stage: nouvStage });
 };
 
+exports.getStages = getStages
 exports.ajouterStage = ajouterStage;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

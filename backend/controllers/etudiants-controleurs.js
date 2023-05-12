@@ -48,8 +48,9 @@ const getEtudiants = async (requete, reponse, next) => {
   let etudiants;
 
   try {
-    etudiants = await Etudiant.findOne({ noDA: noDA });
-  } catch {
+    etudiants = await Etudiant.find({});
+  } catch (err){
+    console.log(err)
     return next(new HttpErreur("Échec vérification etudiant existe", 500));
   }
 
