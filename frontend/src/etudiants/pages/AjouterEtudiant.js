@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState, useContext} from 'react'
 import { useForm } from '../../shared/hooks/form-hook';
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import ErrorModal from "../../shared/components/UIElements/ErrorModal"
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
+import Modal from '../../shared/components/UIElements/Modal';
 import {
     VALIDATOR_REQUIRE,
     VALIDATOR_MINLENGTH,
@@ -12,6 +12,10 @@ import {
 
 const AjouterEtudiant = () => {
     const { error, sendRequest, clearError } = useHttpClient();
+
+    const [ajoutFonctionne, setAjoutFonctionne] = useState(true)
+    const [show, setShow] = useState(false)
+
     const [formState, inputHandler] = useForm(
       {
         noDA: {
@@ -38,37 +42,41 @@ const AjouterEtudiant = () => {
       event.preventDefault();
       console.log(formState.inputs); // send this to the backend!
   
+      formState.inputs.profilSortie.value = document.querySelector("#profilSortie").value;
+      
+
       try {
         const reponseData = await sendRequest(
-          "http://localhost:27017/api/etudiants",
+          "http://localhost:5000/api/etudiants",
           "POST",
           JSON.stringify({
             noDA: formState.inputs.noDA.value,
             nomEtudiant: formState.inputs.nomEtudiant.value,
             courrielEtudiant: formState.inputs.courrielEtudiant.value,
-            profilSortie: formState.inputs.profilSortie.value,
+            profilSortie: document.querySelector("#profilSortie").value,
           }),
           {
             "Content-Type": "application/json",
           }
         );
+        setAjoutFonctionne(true);
         console.log(reponseData);
         
       } catch (err) {
+        setAjoutFonctionne(false);
         console.log(err);
       }
     };
   
     return (
       <React.Fragment>
-        <ErrorModal error={error} onClear={clearError}/>
-      <form onSubmit={etudiantSubmitHandler}>
+        <form onSubmit={etudiantSubmitHandler}>
         <Input
           id="noDA"
           element="input"
           type="text"
           label="Numéro de DA de l'étudiant: "
-          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(10), VALIDATOR_MAXLENGTH(10)]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(9), VALIDATOR_MAXLENGTH(9)]}
           errorText="Entrez un numéro de DA valide."
           onInput={inputHandler}
         />
@@ -93,17 +101,25 @@ const AjouterEtudiant = () => {
         <label>Profil de sortie de l'étudiant: </label>
         <select
           id="profilSortie"
-          onChange={inputHandler}
         >
-          <option>Réseaux et sécurité</option>
-          <option>Développement d'applications</option>
+          <option value="Réseaux et sécurité">Réseaux et sécurité</option>
+          <option value="Développement d'applications">Développement d'applications</option>
         </select>
 
 <br></br>
-        <Button type="submit" disabled={!formState.isValid}>
+        <Button type="submit" disabled={!formState.isValid} onClick={()=> setShow(true)}>
           Ajouter l'étudiant
         </Button>
       </form>
+      {ajoutFonctionne
+       ?<Modal title="Ajout réussi" onClose={() => setShow(false)} show={show}>
+          <p>L'ajout a fonctionné</p>
+       </Modal>
+
+       :<Modal title="Ajout échoué" onClose={() => setShow(false)} show={show}>
+       <p>L'ajout a échoué. Veuillez contacter le superviseur des stages Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca</p>
+        </Modal>
+      }
       </React.Fragment>
     );
   };
