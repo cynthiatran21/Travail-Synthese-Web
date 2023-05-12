@@ -7,11 +7,11 @@ const HttpErreur = require("../models/http-erreur");
 const Stage = require("../models/stage");
 
 const getStages = async (requete, reponse, next) => {
-  //let profilSortie = requete.params.profilSortie;
+  let profilSortie = requete.params.profilSortie;
   let stages;
 
   try {
-    stages = await Stage.find({});
+    stages = await Stage.find({typeStage: profilSortie});
   } catch (err){
     console.log(err)
     return next(new HttpErreur("Erreur accès stages"), 500);
