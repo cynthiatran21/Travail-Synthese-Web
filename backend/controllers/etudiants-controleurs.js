@@ -42,7 +42,7 @@ const ajouterEtudiant = async (requete, reponse, next) => {
     .status(201)
     .json({ etudiant: nouvEtudiant.toObject({ getter: true }) });
 };
-
+ 
 
 const getEtudiants = async (requete, reponse, next) => {
   let etudiants;
