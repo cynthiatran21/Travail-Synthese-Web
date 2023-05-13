@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import StageDispoList from "../components/StageDispoList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-
+import "../../styles/Stages.css"
 const StagesDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
   const [stagesDispo, setStagesDispo] = useState([]);
@@ -52,7 +52,7 @@ const StagesDispo = () => {
   
     return (
           <div>
-            <h1>Voici la liste des cours enseignés au cégep</h1>
+            <h1 className="labelStage">Voici la liste des stages disponibles</h1>
             <div className="filter">
             <label>Filtrer par profil de sortie: </label>
             <select id="typeStage">

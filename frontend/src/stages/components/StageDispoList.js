@@ -2,21 +2,20 @@ import React from 'react';
 import Card from '../../shared/components/UIElements/Card';
 import StageDispoItem from './StageDispoItem';
 import Button from '../../shared/components/FormElements/Button';
+import "../../styles/Stages.css"
 
 function StageDispoList ({stagesDispo, longueur}) {
   if (longueur === 0) {
     return (
-      <div>
-        <Card>
-          <h2>Aucun stage disponible. En créer un?</h2>
-          <Button to="/Stages/AjouterStage">Créer Stage</Button>
-        </Card>
+      <div className="aucunStage">
+          <h2>Aucun stage disponible. En ajouter un?</h2>
+          <Button to="/Stages/AjouterStage">Ajouter un stage</Button>
       </div>
     );
   }
 
   return (
-    <ul>
+    <div className="stagesList">
       {stagesDispo.map((stage, index) => (
         <Card key={index}>
         <StageDispoItem
@@ -31,7 +30,7 @@ function StageDispoList ({stagesDispo, longueur}) {
         />
         </Card>
       ))}
-    </ul>
+    </div>
   );
 };
 
