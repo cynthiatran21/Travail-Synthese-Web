@@ -1,10 +1,15 @@
 .pagesInformatives {
-    text-align: center;
-    position:sticky;
-    height:15px;
+  height: 50px;
+  position:sticky;
+  width: 100%;
+  color: black;
   padding-top:15px;
-  padding-bottom:30px;
+  padding-bottom:15px;
   background-color: rgb(142, 210, 142);
+  justify-content: center;
+  flex: 50%;
+  display: flex;
+  align-items: center;
 }
 
 .pagesInformatives a {

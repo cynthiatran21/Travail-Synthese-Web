@@ -23,10 +23,10 @@ const App = () => {
       <Routes>
         <Route path="/" exact element={<Accueil />} />
         <Route path="/PagesInformatives" exact element={<PagesInformatives />} />
-        <Route path="/PagesInformatives/DeroulementStagesEmp" exact element={<DeroulementStagesEmp />} />
-        <Route path="/PagesInformatives/ProfilsCompetences" exact element={<ProfilsCompetences />} />
-        <Route path="/PagesInformatives/DeroulementStagesEtu" exact element={<DeroulementStagesEtu />} />
-        <Route path="/PagesInformatives/FAQ" exact element={<FAQ />} />
+        <Route path="/DeroulementStagesEmp" exact element={<DeroulementStagesEmp />} />
+        <Route path="/ProfilsCompetences" exact element={<ProfilsCompetences />} />
+        <Route path="/DeroulementStagesEtu" exact element={<DeroulementStagesEtu />} />
+        <Route path="/FAQ" exact element={<FAQ />} />
         <Route path="/Stages/AjouterStage" exact element={<AjouterStage />} />
         <Route path="/Stages" exact element={<StagesDispo />} />
         <Route path="/Etudiants/AjouterEtudiant" exact element={<AjouterEtudiant />} />
