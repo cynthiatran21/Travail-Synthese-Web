@@ -4,8 +4,7 @@
   display: flex;
   align-items: center;
   padding-left:50px;
-
-  position:static;
+  position:sticky;
    width: 100%;
    color: black;
    padding-top:15px;
