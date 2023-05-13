@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo_momo.png";
-import "../../styles/AjouterStage.css";
 import "../../styles/NavBar.css";
 
 function NavBar() {

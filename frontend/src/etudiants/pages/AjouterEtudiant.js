@@ -9,6 +9,7 @@ import {
     VALIDATOR_MINLENGTH,
     VALIDATOR_MAXLENGTH
   } from '../../shared/util/validators';
+import "../../styles/Formulaire.css";
 
 const AjouterEtudiant = () => {
     const { error, sendRequest, clearError } = useHttpClient();

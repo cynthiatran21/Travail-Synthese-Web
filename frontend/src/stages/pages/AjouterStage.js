@@ -11,7 +11,7 @@ import {
   VALIDATOR_EMAIL,
   VALIDATOR_MIN,
 } from "../../shared/util/validators";
-import "../../styles/AjouterStage.css";
+import "../../styles/Formulaire.css";
 
 const AjouterStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
