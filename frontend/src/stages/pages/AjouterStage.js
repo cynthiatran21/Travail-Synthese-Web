@@ -9,6 +9,7 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_MAXLENGTH,
   VALIDATOR_EMAIL,
+  VALIDATOR_MIN,
 } from "../../shared/util/validators";
 import "../../styles/AjouterStage.css";
 
@@ -164,11 +165,11 @@ const AjouterStage = () => {
           </option>
         </select>
         <Input
+          type="number"
           id="nbPostesDispo"
           element="input"
-          type="number"
           label="Nombre de postes disponibles: "
-          validators={[VALIDATOR_REQUIRE()]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MIN(1)]}
           errorText="Entrez un nombre valide."
           onInput={inputHandler}
         />
