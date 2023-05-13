@@ -122,7 +122,7 @@ const AjouterStage = () => {
           type="text"
           label="Courriel de la personne contact: "
           validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
-          errorText="Entrez un nom valide."
+          errorText="Entrez un courriel valide."
           onInput={inputHandler}
         />
         <Input

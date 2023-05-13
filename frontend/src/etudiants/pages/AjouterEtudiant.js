@@ -7,7 +7,8 @@ import Modal from '../../shared/components/UIElements/Modal';
 import {
     VALIDATOR_REQUIRE,
     VALIDATOR_MINLENGTH,
-    VALIDATOR_MAXLENGTH
+    VALIDATOR_MAXLENGTH,
+    VALIDATOR_EMAIL
   } from '../../shared/util/validators';
 import "../../styles/Formulaire.css";
 
@@ -95,7 +96,7 @@ const AjouterEtudiant = () => {
           element="input"
           type="text"
           label="Courriel de l'étudiant: "
-          validators={[VALIDATOR_REQUIRE()]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
           errorText="Entrez un courriel valide."
           onInput={inputHandler}
         />
