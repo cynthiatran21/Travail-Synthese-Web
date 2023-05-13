@@ -106,7 +106,7 @@ const AjouterEtudiant = () => {
           <option value="Développement d'applications">Développement d'applications</option>
         </select>
 
-<br></br>
+      <br></br>
         <Button type="submit" disabled={!formState.isValid} onClick={()=> setShow(true)}>
           Ajouter l'étudiant
         </Button>

@@ -1,5 +1,5 @@
 .nav {
-  height: 150px;
+  height: 170px;
   background-color: #5894f3;
   display: flex;
   align-items: center;
@@ -7,8 +7,8 @@
 }
 
 .nav img {
-  width: 400px;
-  height:78px;
+  width: 450px;
+  height:85px;
 }
 
 .nav-menu {
@@ -23,7 +23,7 @@
   font-weight: bold;
   text-decoration: none;
   margin: 20px;
-  font-size: 25px;
+  font-size: 33px;
 }
 
 .nav-menu a:hover {
