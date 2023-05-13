@@ -3,8 +3,8 @@ import Card from '../../shared/components/UIElements/Card';
 import StageDispoItem from './StageDispoItem';
 import Button from '../../shared/components/FormElements/Button';
 
-function StageDispoList ({profilsCibles}) {
-  if (profilsCibles.length === 0) {
+function StageDispoList ({stagesDispo}) {
+  if (stagesDispo.length === 0) {
     return (
       <div>
         <Card>
@@ -17,7 +17,7 @@ function StageDispoList ({profilsCibles}) {
 
   return (
     <ul>
-      {profilsCibles.items.map((stage, index) => (
+      {stagesDispo.items.map((stage, index) => (
         <Card key={index}>
         <StageDispoItem
           key={stage.id}
