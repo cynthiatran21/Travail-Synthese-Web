@@ -10,6 +10,7 @@ import {
   VALIDATOR_MAXLENGTH,
   VALIDATOR_EMAIL,
 } from "../../shared/util/validators";
+import "../../styles/AjouterStage.css";
 
 const AjouterStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
