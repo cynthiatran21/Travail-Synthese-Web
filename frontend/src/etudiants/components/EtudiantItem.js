@@ -1,20 +1,15 @@
 import React from 'react';
-
-import Card from '../../shared/components/UIElements/Card';
+import "../../styles/Etudiants.css"
 
 const EtudiantItem = props => {
   return (
     <React.Fragment>
-      <li className="etudiant-item">
-        <Card>
-          <div>
-            <h2>{props.noDA}</h2>
-            <h3>{props.nomEtudiant}</h3>
-            <p>{props.courrielEtudiant}</p>
-            <p>{props.profilSortie}</p>
+      <div className="etudiantItem">
+      <h1>{props.nomEtudiant}</h1>
+            <p>Numéro de DA: {props.noDA}</p>
+            <p>Courriel: {props.courrielEtudiant}</p>
+            <p>Profil de sortie: {props.profilSortie}</p>
           </div>
-        </Card>
-      </li>
     </React.Fragment>
   );
 };

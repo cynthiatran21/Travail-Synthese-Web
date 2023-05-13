@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StageDispoList from "../components/StageDispoList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import "../../styles/Stages.css"
+
 const StagesDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
   const [stagesDispo, setStagesDispo] = useState([]);

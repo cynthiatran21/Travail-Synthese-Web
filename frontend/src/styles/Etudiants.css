@@ -1,0 +1,29 @@
+.etudiantsList {
+    gap: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px;
+  }
+
+  .etudiantItem {
+    background-color: white;
+    padding: 50px;
+    border-radius: 30px;
+  }
+  .etudiantItem p {
+    text-align: left;
+    font-size: 20px;
+  }
+  .etudiantItem h1 {
+    text-align: center;
+  }
+
+  .labelEtudiant{
+    padding-top:15px;
+    text-align: center;
+  }
+
+  .aucunEtudiant{
+    text-align: center;
+    margin-bottom:30px;
+  }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EtudiantList from "../components/EtudiantList";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-
+import "../../styles/Etudiants.css"
 
 const EtudiantsDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
@@ -34,7 +34,7 @@ const EtudiantsDispo = () => {
 
     return (
       <div>
-        <h1>Voici la liste des étudiants</h1>
+        <h1 className="labelEtudiant">Voici la liste des étudiants</h1>
            <EtudiantList etudiantsDispo={etudiantsDispo} longueur={longueur} />
       </div>
       );
