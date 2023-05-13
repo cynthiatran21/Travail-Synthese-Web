@@ -1,9 +1,9 @@
 import React from "react";
-
+import "../styles/Accueil.css"
 function Accueil() {
   return (
-    <div>
-      <p>Édition 2023</p>
+    <div className="accueil">
+      <h3>Édition 2023</h3>
 
       <p>
         Bienvenue sur le site des stages de fin d'études des techniques de

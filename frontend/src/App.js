@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import NavBar from "./shared/components/NavBar";
 import Accueil from "./pages/Accueil";
-import PagesInformatives from "./pages/pagesInformatives/PagesInformatives";
+import PagesInformatives from "./shared/components/PagesInformatives";
 import DeroulementStagesEmp from "./pages/pagesInformatives/DeroulementStagesEmp";
 import ProfilsCompetences from "./pages/pagesInformatives/ProfilsCompetences";
 import DeroulementStagesEtu from "./pages/pagesInformatives/DeroulementStagesEtu";
@@ -19,6 +19,7 @@ const App = () => {
   return (
     <Router>
       <NavBar />
+      <PagesInformatives />
       <Routes>
         <Route path="/" exact element={<Accueil />} />
         <Route path="/PagesInformatives" exact element={<PagesInformatives />} />
