@@ -13,6 +13,7 @@ import StagesDispo from "./stages/pages/StagesDispo"
 import AjouterEtudiant from "./etudiants/pages/AjouterEtudiant"
 import Etudiants from "./etudiants/pages/Etudiants"
 import Footer from "./shared/components/Footer";
+import "./styles/App.css"
 
 const App = () => {
   return (

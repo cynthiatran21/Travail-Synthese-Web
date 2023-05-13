@@ -1,8 +1,6 @@
 form {
-  padding: 2rem;
-  background: rgb(204, 223, 248);
-  margin-left: auto;
-  margin-right: auto;
+  padding-top:15px;
+  padding-left:150px;
 }
 
 form label {
@@ -15,8 +13,6 @@ form label {
 
 form button {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 20px;
   font-size: 25px;
   padding: 5px 50px;

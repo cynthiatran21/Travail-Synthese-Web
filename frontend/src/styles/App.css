@@ -1,0 +1,7 @@
+
+  body {
+    position:static;
+    background: rgb(204, 223, 248); /* couleur de fond */
+    overflow:scroll;
+  }
+  

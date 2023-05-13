@@ -12,6 +12,7 @@ import {
   VALIDATOR_MIN,
 } from "../../shared/util/validators";
 import "../../styles/Formulaire.css";
+import "../../styles/AjouterStage.css";
 
 const AjouterStage = () => {
   const { error, sendRequest, clearError } = useHttpClient();
@@ -104,6 +105,7 @@ const AjouterStage = () => {
   };
 
   return (
+    <div className="fond">
     <React.Fragment>      
       <form onSubmit={stageSubmitHandler} id="idForm">
         <Input
@@ -213,15 +215,9 @@ const AjouterStage = () => {
        :<Modal title="Ajout échoué" onClose={() => setShow(false)} show={show}>
        <p>L'ajout a échoué. Veuillez contacter le superviseur des stages Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca</p>
     </Modal>
-      
-    
       }
-
-
-      
-
-     
     </React.Fragment>
+    </div>
   );
 };
 
