@@ -6,17 +6,18 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 const EtudiantsDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
   const [etudiantsDispo, setEtudiantsDispo] = useState([]);
-  const [tabTemp, setTabTemp] = useState([]);
   const [longueur, setLongueur] = useState([]);
 
   useEffect(() => {
     const recupererEtudiants = async () => {
       try{
 
-        
+        let tabTemp =[];
         const reponseData = await sendRequest("http://localhost:5000/api/etudiants")
 
-        let longueur = reponseData.etudiants.length;
+        let long = reponseData.etudiants.length;
+
+        setLongueur(long);
         
 
         for (let i = 0; i < longueur; i++) {
@@ -29,16 +30,12 @@ const EtudiantsDispo = () => {
       }
     };
     recupererEtudiants();
-  }, [sendRequest]);
-
-
-  
-  console.log("EtudiantsDispo " + etudiantsDispo);
+  }, [sendRequest, etudiantsDispo, longueur]);
 
     return (
       <div>
         <h1>Voici la liste des étudiants</h1>
-           <EtudiantList etudiantsDispo={tabTemp} longueur={longueur} />
+           <EtudiantList etudiantsDispo={etudiantsDispo} longueur={longueur} />
       </div>
       );
     };
