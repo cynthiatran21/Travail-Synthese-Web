@@ -1,95 +1,94 @@
 import React from "react";
+import "../../styles/PagesInformatives.css"
 
 function DeroulementStagesEtu() {
   return (
-    <div>
-      <h4>Édition 2023 - Directives pour les étudiants</h4>
+    <div className="deroulementStagesEtudiant">
+      <h2>Édition 2023 - Directives pour les étudiants</h2>
 
-      <p>
+      <h3>
         Tâches à effectuer par l'étudiant à la session d'automne (c'est-à-dire
         maintenant):
-      </p>
-
-      <p>
+      </h3>
+<ul>
+      <li>
         Au plus tard le mardi 18 septembre à 12h00: Produire un CV que vous
-        devez remettre au coordonnateur des stages (Sylvain Labranche).{" "}
-      </p>
-
+        devez remettre au coordonnateur des stages (Sylvain Labranche). {" "}
+      </li>
+<ul>
       <p>
         En format "Word" ou en format PDF que vous allez remettre sur Moodle
         pour le cours "2018-2019 : Stages de fin d'études en informatique". Vous
         devez remettre un seul fichier .ZIP (pas d'autre format accepté) nommé
         NomFamillePrenom.ZIP (pas d'espace, ni d'accent dans le nom du fichier)
       </p>
+      </ul>
 
-      <p>Contacter les employeurs pour leur proposer vos services</p>
+      <li>Contacter les employeurs pour leur proposer vos services</li>
 
+<ul>
       <p>
-        Pour chaque employeur que vous contactez vous devez inscrire ses
-        coordonnées sur le formulaire{" "}
-        <a href="../documents/contact_employeurs.pdf"> </a>
+        Pour chaque employeur que vous contactez, vous devez inscrire ses
+        coordonnées sur le formulaire {" "}
+        <a href="../documents/contact_employeurs.pdf">&laquo;contact&nbsp;employeurs&raquo;</a>
+        {" "}.
+        (Fichier en format{" "}
+        <a href="../documents/contact_employeurs.docx">Word</a>)
       </p>
-
-      <p>
-        Fichier en format{" "} 
-        <a href="../documents/contact_employeurs.docx">Word.</a>
-      </p>
-
-      <p>
-        Lorsque vous rencontrez un employeur (entrevue) vous devez remplir le
-        formulaire 
+      </ul>
+      <li>
+        Lorsque vous rencontrez un employeur (entrevue), vous devez remplir le
+        formulaire {" "}
         <a href="../documents/rencontre_employeur.pdf">
           &laquo;rencontre&nbsp;employeur&raquo;
         </a>
-        .
-      </p>
-
-      <p>
-        Fichier en format{" "} 
-        <a href="../documents/rencontre_employeur.docx">Word.</a>
-      </p>
-
+        {" "}.
+        (Fichier en format{" "} 
+        <a href="../documents/rencontre_employeur.docx">Word</a>)
+      </li>
+<ul>
       <p>
         Vous devez rencontrer au moins trois (3) employeurs, à moins bien sûr
         que vous ayez trouvé votre stage avant. Vous devriez avoir au moins
         trois formulaires &laquo;rencontre&raquo;, un par employeur rencontré.
       </p>
-
-      <p>
+      </ul>
+      <li>
         Au plus tard le vendredi 2 novembre à 12h00: remettre vos formulaires
         &laquo;contact&nbsp;employeurs&raquo; et
-        &laquo;rencontre&nbsp;employeur&raquo; remplis: Dans colnet (dans un
+        &laquo;rencontre&nbsp;employeur&raquo; remplis dans Col.Net (dans un
         fichier .ZIP, comme indiqué ci-haut, n'oubliez pas d'inclure tous les
         formulaires &laquo;contact&raquo; et &laquo;rencontre&raquo; en format
         Word){" "}
-      </p>
+      </li>
+<br></br>
+      <li>Ainsi le 2 novembre, vous devriez avoir trouvé votre stage.</li>
+      </ul>
 
-      <p>Ainsi le 2 novembre, vous devriez avoir trouvé votre stage.</p>
-
-      <p>Sites Web pour vous aider:</p>
+      <br></br>
+      <h3>Sites Web pour vous aider:</h3>
 
       <p>À l'hiver</p>
       <p>
         Pour comprendre le fonctionnement général des projets de fin d'études
-        (stages) je vous invite à consulter les différentes sections du site Web
+        (stages), je vous invite à consulter les différentes sections du site Web
         dans le menu de droite.
       </p>
 
       <p>
-        Lisez ce document concernant 
+        Lisez ce document concernant {" "}
         <a href="../documents/Code_ethique_presentation_stages.pdf">
-          l'éthique et les dates (pour Hiver 2019)
+          l'éthique et les dates (pour Hiver 2019).
         </a>
       </p>
 
       <p>
-        Plus de détails pour les 
-        <a href="rapports_techniques.php">rapports techniques</a>
+        Plus de détails pour les {" "}
+        <a href="rapports_techniques.php">rapports techniques</a>.
       </p>
-      <li>
         TRÈS IMPORTANT: pour toute communication par courriel avec le
-        coordonnateur vous devez inscrire dans le sujet du message:
-      </li>
+        coordonnateur, vous devez inscrire dans le sujet du message:
+    <ul>
       <li class="retrait petit">SUJET: Stages profil #DA nom - raison</li>
       <li class="retrait petit">profil est soit réseaux, soit prog</li>
       <li class="retrait petit">#DA est votre numéro d'admission</li>
@@ -102,8 +101,11 @@ function DeroulementStagesEtu() {
         Si ces conditions ne sont pas respectées, j'ignorerai le courriel et je
         ne répondrai pas.
       </li>
+      </ul>
 
-      <p>Déroulement des stages / Horaire de travail</p>
+      <br></br>
+
+      <h3>Déroulement des stages / Horaire de travail</h3>
       <p>
         Les stages ont lieu durant la session d'hiver. Ils sont d'une durée de
         15 semaines, du x janvier au y mai 2024. Vous trouverez les détails dans

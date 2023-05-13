@@ -1,8 +1,9 @@
 import React from "react";
+import "../../styles/PagesInformatives.css"
 
 function DeroulementStagesEmp() {
   return (
-    <div>
+    <div className="deroulementStagesEmployeur">
 <p>Formulaire d'inscription de milieu de stage</p>
 <p>Stages réguliers ayant lieu à la session hiver </p>
 <p>Les stages sont du 21 janvier au 3 mai 2019

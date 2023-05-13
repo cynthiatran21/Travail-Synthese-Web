@@ -1,0 +1,65 @@
+.pagesInformatives {
+  height: 50px;
+  position:sticky;
+  width: 100%;
+  color: black;
+  padding-top:15px;
+  padding-bottom:15px;
+  background-color: rgb(142, 210, 142);
+  justify-content: center;
+  flex: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.pagesInformatives a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.pagesInformatives a:hover {
+  text-decoration: underline;
+}
+
+.deroulementStagesEmployeur{
+    color: black;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 50px;
+}
+
+.profilCompetences{
+    color: black;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 50px;
+}
+
+.profilCompetences h2{
+    text-decoration:underline;
+}
+
+.deroulementStagesEtudiant{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 50px;
+}
+
+.deroulementStagesEtudiant h2{
+    text-decoration:underline;
+}
+
+.faq {
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 50px;
+}
+
+.faq h2{
+    text-decoration:underline;
+}

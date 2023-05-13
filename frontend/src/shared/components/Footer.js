@@ -3,10 +3,10 @@ import "../../styles/Footer.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <h2>Coordonnateur de stages: Sylvain Labranche</h2>
-      <h2>Courriel: sylvain.labranche@cmontmorency.qc.ca</h2>
-      <h3>Date de la dernière modification: 21 mai 2023</h3>
+    <footer>
+      <p>Coordonnateur de stages: Sylvain Labranche</p>
+      <p>Courriel: sylvain.labranche@cmontmorency.qc.ca</p>
+      <p>Date de la dernière modification: 21 mai 2023</p>
     </footer>
     
   );
