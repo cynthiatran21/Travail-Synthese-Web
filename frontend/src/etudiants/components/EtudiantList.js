@@ -4,9 +4,9 @@ import Card from '../../shared/components/UIElements/Card';
 import EtudiantItem from './EtudiantItem';
 import Button from '../../shared/components/FormElements/Button';
 
-const EtudiantList = props => {
-  console.log(props);
-  if (props.items.length === 0) {
+function EtudiantList ({etudiantsDispo, longueur}) {
+
+  if (longueur === 0) {
     return (
       <div>
         <Card>
@@ -17,16 +17,20 @@ const EtudiantList = props => {
     );
   }
 
+  console.log("essai")
+  console.log(etudiantsDispo);
   return (
     <ul>
-      {props.items.map(etu => (
-        <EtudiantItem
-          key={etu.id}
-          noDA={etu.noDA}
-          nomEtudiant={etu.nomEtudiant}
-          courrielEtudiant={etu.courrielEtudiant}
-          profilSortie={etu.profilSortie}
+      {etudiantsDispo.map((etu, index) => (
+        <Card key={index}>
+          <EtudiantItem
+            key={etu.id}
+            noDA={etu.noDA}
+            nomEtudiant={etu.nomEtudiant}
+            courrielEtudiant={etu.courrielEtudiant}
+            profilSortie={etu.profilSortie}
         />
+        </Card>
       ))}
     </ul>
   );
