@@ -35,6 +35,7 @@ const EtudiantsDispo = () => {
     return (
       <div>
         <h1 className="labelEtudiant">Voici la liste des étudiants</h1>
+          <h3 className="labelEtudiant">Pour assigner un stage à un étudiant, cliquer sur celui-ci</h3>
            <EtudiantList etudiantsDispo={etudiantsDispo} longueur={longueur} />
       </div>
       );
