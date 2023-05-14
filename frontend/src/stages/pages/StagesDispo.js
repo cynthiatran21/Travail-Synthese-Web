@@ -6,11 +6,19 @@ import "../../styles/Stages.css"
 const StagesDispo = () => {
   const {error, sendRequest, clearError } = useHttpClient();
   const [stagesDispo, setStagesDispo] = useState([]);
-  const [longueur, setLongueur] = useState([]);
-  //const [profilFiltre, setProfilFiltre] = useState("Réseaux et sécurité");
+  const [longueur, setLongueur] = useState(0);
 
+
+  const [stagesDispoProg, setStagesDispoProg] = useState([]);
+  const [stagesDispoReseau, setStagesDispoReseau] = useState([]);
+
+  const [longueurProg, setLongueurProg] = useState(0);
+  const [longueurReseau, setLongueurReseau] = useState(0);
+
+  
   useEffect(() => {
     const recupererStages = async () => {
+      
       try{
         let tabTemp=[];
 
@@ -19,25 +27,29 @@ const StagesDispo = () => {
         
           let long = reponseData.stages.length;
   
-          setLongueur(long);
+          setLongueurReseau(long);
+          setLongueur(longueurReseau);
   
-          for (let i = 0; i < longueur; i++) {
+          for (let i = 0; i < longueurReseau; i++) {
             tabTemp.push(reponseData.stages[i]);
           }
           
-          setStagesDispo(tabTemp);
+          setStagesDispoReseau(tabTemp);
+          setStagesDispo(stagesDispoReseau);
         } else if(document.querySelector("#typeStage").value === "Développement d'application"){
           const reponseData = await sendRequest("http://localhost:5000/api/stages/Développement d'applications")
         
           let long = reponseData.stages.length;
 
-          setLongueur(long);
+          setLongueurProg(long);
+          setLongueur(longueurProg);
 
-          for (let i = 0; i < longueur; i++) {
+          for (let i = 0; i < longueurProg; i++) {
             tabTemp.push(reponseData.stages[i]);
           }
         
-          setStagesDispo(tabTemp);
+          setStagesDispoProg(tabTemp);
+          setStagesDispo(stagesDispoProg);
         }
         
       } catch (err) {
@@ -47,9 +59,6 @@ const StagesDispo = () => {
     recupererStages();
   }, [sendRequest, stagesDispo, longueur]);
   
-  // const handleProfilFiltre = (event) => {
-  //   setProfilFiltre(event.target.value);
-  // };
   
     return (
           <div>
