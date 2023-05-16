@@ -4,6 +4,8 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import Button from '../../shared/components/FormElements/Button';
 import Modal from '../../shared/components/UIElements/Modal';
 
+import StagesDispo from '../../stages/pages/StagesDispo';
+
 import "../../styles/Etudiants.css"
 
 const EtudiantItem = props => {
@@ -11,6 +13,17 @@ const EtudiantItem = props => {
 
   const [assignationFonctionne, setAssignationFonctionne] = useState(true)
   const [show, setShow] = useState(false)
+
+  
+  const [stagesDispo, setStagesDispo] = useState([]);
+  const [longueur, setLongueur] = useState(0);
+
+
+  const [stagesDispoProg, setStagesDispoProg] = useState([]);
+  const [stagesDispoReseau, setStagesDispoReseau] = useState([]);
+
+  const [longueurProg, setLongueurProg] = useState(0);
+  const [longueurReseau, setLongueurReseau] = useState(0);
 
   const [formState, inputHandler] = useForm(
     {
@@ -23,34 +36,79 @@ const EtudiantItem = props => {
   );
 
 
-  const choixStageHandler  = async event =>  {
-    // event.preventDefault();
-    // console.log(formState.inputs); // send this to the backend!
 
-    // formState.inputs.profilSortie.value = document.querySelector("#profilSortie").value;
-    
 
-    // try {
-    //   const reponseData = await sendRequest(
-    //     "http://localhost:5000/api/etudiants",
-    //     "POST",
-    //     JSON.stringify({
-    //       noDA: formState.inputs.noDA.value,
-    //       nomEtudiant: formState.inputs.nomEtudiant.value,
-    //       courrielEtudiant: formState.inputs.courrielEtudiant.value,
-    //       profilSortie: document.querySelector("#profilSortie").value,
-    //     }),
-    //     {
-    //       "Content-Type": "application/json",
-    //     }
-    //   );
-    //   setAjoutFonctionne(true);
-    //   console.log(reponseData);
+
+
+
+  
+  useEffect(() => {
+    const recupererStages = async () => {
       
-    // } catch (err) {
-    //   setAjoutFonctionne(false);
-    //   console.log(err);
-    // }
+      try{
+        let tabTemp=[];
+
+        if(props.profilSortie === "Réseaux et sécurité"){
+          const reponseData = await sendRequest("http://localhost:5000/api/stages/Réseaux et sécurité")
+        
+          let long = reponseData.stages.length;
+  
+          setLongueurReseau(long);
+          setLongueur(longueurReseau);
+  
+          for (let i = 0; i < longueurReseau; i++) {
+            tabTemp.push(reponseData.stages[i]);
+          }
+          
+          setStagesDispoReseau(tabTemp);
+          setStagesDispo(stagesDispoReseau);
+        } else if(props.profilSortie === "Développement d'application"){
+          const reponseData = await sendRequest("http://localhost:5000/api/stages/Développement d'applications")
+        
+          let long = reponseData.stages.length;
+
+          setLongueurProg(long);
+          setLongueur(longueurProg);
+
+          for (let i = 0; i < longueurProg; i++) {
+            tabTemp.push(reponseData.stages[i]);
+          }
+        
+          setStagesDispoProg(tabTemp);
+          setStagesDispo(stagesDispoProg);
+        }
+        
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    recupererStages();
+  }, [sendRequest, stagesDispo, longueur]);
+
+
+console.log("TEST_______________________________________________________-")
+console.log(stagesDispo);
+console.log("TEST_______________________________________________________-")
+
+
+// var x = document.getElementById("stage");
+// var option = document.createElement("option");
+
+
+// for (let i = 0; i < longueur; i++) {
+//   var option = document.createElement("option");
+//   option.text = stagesDispo[i].nomEntreprise;
+//   x.add(option, x[i]);
+// }
+
+
+function afficherOptions(){
+
+};
+
+
+  const choixStageHandler  = async event =>  {
+    //test
   };
 
 
@@ -89,6 +147,8 @@ const EtudiantItem = props => {
             <option value="Réseaux et sécurité">Réseaux et sécurité</option>
             <option value="Développement d'applications">Développement d'applications</option>
           </select>
+
+          <StagesDispo />
 
           <br></br>
           <Button type="submit" disabled={!formState.isValid}>
