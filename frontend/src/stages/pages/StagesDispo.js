@@ -37,7 +37,7 @@ const StagesDispo = () => {
           setStagesDispoReseau(tabTemp);
           setStagesDispo(stagesDispoReseau);
         } else if(document.querySelector("#typeStage").value === "Développement d'application"){
-          const reponseData = await sendRequest("http://localhost:5000/api/stages/Développement d'applications")
+          const reponseData = await sendRequest("http://localhost:5000/api/stages/Développement d'application")
         
           let long = reponseData.stages.length;
 

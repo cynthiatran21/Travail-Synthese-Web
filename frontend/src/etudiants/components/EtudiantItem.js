@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import Button from "../../shared/components/FormElements/Button";
@@ -32,8 +32,11 @@ const EtudiantItem = (props) => {
     },
     true
   );
+  const [showOnce, setShowOnce] = useState(0);
 
-  const x = document.querySelector("#stage");
+  //const x = document.querySelector("#stage");
+  //const select = document.querySelector('select'); 
+  const selectRef = useRef();
 
   useEffect(() => {
     const recupererStages = async () => {
@@ -58,7 +61,7 @@ const EtudiantItem = (props) => {
           setStagesDispo(stagesDispoReseau);
         } else if (props.profilSortie === "Développement d'application") {
           const reponseData = await sendRequest(
-            "http://localhost:5000/api/stages/Développement d'applications"
+            "http://localhost:5000/api/stages/Développement d'application"
           );
 
           let long = reponseData.stages.length;
@@ -91,10 +94,39 @@ const EtudiantItem = (props) => {
   //   x.add(option, x[i]);
   // }
 
-  function afficherOptions() {
+  useEffect(() => {
+    // Access the select element after the component has rendered
+    if(show && showOnce < 1){
+    const select = selectRef.current;
+    if (select) {
+      console.log(longueur)
+      console.log(showOnce)
+      // Manipulate the select element here
+      for (let i = 0; i < longueur; i++) {
+        var option = document.createElement("option");
+        option.text = stagesDispo[i].nomEntreprise;
+        console.log("TEST_____________________________________")
+        console.log(option)
+        console.log(select)
+        console.log("TEST______________________________________")
+        select.add(option, undefined);
+      }
+      setShowOnce(showOnce+1)
+    }
+  }
+  }, [show, longueur, stagesDispo]);
+
+  useEffect(() => {
+    // Access the select element after the component has rendered
+    if(!show){
+    setShowOnce(0);
+  }
+  }, [show, longueur, stagesDispo]);
+  
+  /*function afficherOptions() {
     setShow(true);
     console.log("TEST_______________________________________________________-");
-    console.log(document.querySelector("#buttonStage"))
+    console.log(selectRef.current)
   console.log(stagesDispo);
   console.log("TEST_______________________________________________________-");
     
@@ -102,13 +134,13 @@ const EtudiantItem = (props) => {
       var option = document.createElement("option");
       option.text = stagesDispo[i].nomEntreprise;
       console.log(option)
-      console.log(x)
+      //console.log(x)
       //x.add(option, x[i]);
    
-        $('#stage').append(`<option value="${option}">${option}</option>`);
-      
+        //x.append(`<option value="${option}">${option}</option>`);
+        selectRef.current.add(option,undefined);
     }
-  }
+  }*/
 
   const choixStageHandler = async (event) => {
     //test
@@ -116,7 +148,7 @@ const EtudiantItem = (props) => {
 
   return (
     <React.Fragment>
-      <div onClick={() => afficherOptions()} className="etudiantItem">
+      <div onClick={() => setShow(true)} className="etudiantItem">
         <h1>{props.nomEtudiant}</h1>
         <p>Numéro de DA: {props.noDA}</p>
         <p>Courriel: {props.courrielEtudiant}</p>
@@ -131,7 +163,7 @@ const EtudiantItem = (props) => {
         <p>Choisir un stage</p>
         <form onSubmit={choixStageHandler}>
           <label>Stages disponibles: </label>
-          <select id="stage">
+          <select ref={selectRef} id="stage">
           </select>
 
           <br></br>

@@ -161,8 +161,8 @@ const AjouterStage = () => {
           id="typeStage"
         >
           <option value="Réseaux et sécurité">Réseaux et sécurité</option>
-          <option value="Développement d'applications">
-            Développement d'applications
+          <option value="Développement d'application">
+            Développement d'application
           </option>
         </select>
         <Input

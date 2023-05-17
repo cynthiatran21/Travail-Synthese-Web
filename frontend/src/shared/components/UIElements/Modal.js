@@ -3,7 +3,7 @@ import "./Modal.css";
 
 const Modal = props => {
   if (props.show === false){
-    console.log("entre ds false")
+    //console.log("entre ds false")
     return <div>
       
     </div>

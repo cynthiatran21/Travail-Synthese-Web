@@ -15,7 +15,7 @@ function EtudiantList ({etudiantsDispo, longueur}) {
     );
   }
 
-  console.log(etudiantsDispo);
+  //console.log(etudiantsDispo);
   return (
     <div className="etudiantsList">
       {etudiantsDispo.map((etu, index) => (
