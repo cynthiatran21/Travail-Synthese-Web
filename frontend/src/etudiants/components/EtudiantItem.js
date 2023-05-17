@@ -123,30 +123,20 @@ const EtudiantItem = (props) => {
 
   
   const choixStageHandler = async (event) => {
-    //assigner le stage a letudiant : ajouter l'etudiant a la liste de stagiaires, ajouter le stage a l'etudiant
 
     event.preventDefault();
-    //console.log(formState.inputs);
 
     console.log("ID etudiant: " + props.cle);
     console.log("Stage: " + document.querySelector("#stage").value);
 
-    //formState.inputs.profilSortie.value = document.querySelector("#profilSortie").value;
 
-    /*try {
-
-      //router.patch("/:etudiantId", controleursEtudiant.assignerStage);
+    try {
       const reponseData = await sendRequest(
         "http://localhost:5000/api/etudiants",
         "PATCH",
         JSON.stringify({
-          nomContact: formState.inputs.noDA.value,
-          courrielContact: formState.inputs.nomEtudiant.value,
-          nomEntreprise: formState.inputs.courrielEtudiant.value,
-          adresseEntreprise: document.querySelector("#profilSortie").value,
-          typeStage: formState.inputs.courrielEtudiant.value,
-          nbPostesDispo: formState.inputs.courrielEtudiant.value,
-          description: formState.inputs.courrielEtudiant.value,
+          idStage: document.querySelector("#stage").value,
+          idEtudiant: props.cle,
         }),
         {
           "Content-Type": "application/json",
@@ -154,10 +144,11 @@ const EtudiantItem = (props) => {
       );
       //setAjoutFonctionne(true);
       console.log(reponseData);
+      console.log("Fonctionne")
     } catch (err) {
       //setAjoutFonctionne(false);
       console.log(err);
-    }*/
+    }
   };
 
   return (
