@@ -47,17 +47,23 @@ const EtudiantItem = (props) => {
           let long = reponseData.stages.length;
 
           setLongueurReseau(long);
-          setLongueur(longueurReseau);
+
+          let longTemp = 0;
 
           for (let i = 0; i < longueurReseau; i++) {
             if (
               reponseData.stages[i].stagiaires.length <
               reponseData.stages[i].nbPostesDispo
             ) {
+              console.log("ENTRE DS IF")
               tabTemp.push(reponseData.stages[i]);
+              console.log(reponseData.stages[i]);
+              longTemp++;
             }
           }
 
+
+          setLongueur(longTemp);
           setStagesDispoReseau(tabTemp);
           setStagesDispo(stagesDispoReseau);
         } else if (props.profilSortie === "Développement d'applications") {
@@ -68,7 +74,8 @@ const EtudiantItem = (props) => {
           let long = reponseData.stages.length;
 
           setLongueurProg(long);
-          setLongueur(longueurProg);
+
+          let longTemp = 0;
 
           for (let i = 0; i < longueurProg; i++) {
             if (
@@ -76,9 +83,11 @@ const EtudiantItem = (props) => {
               reponseData.stages[i].nbPostesDispo
             ) {
               tabTemp.push(reponseData.stages[i]);
+              longTemp++;
             }
           }
 
+          setLongueur(longTemp);
           setStagesDispoProg(tabTemp);
           setStagesDispo(stagesDispoProg);
         }
@@ -97,6 +106,7 @@ const EtudiantItem = (props) => {
         console.log(showOnce);
         for (let i = 0; i < longueur; i++) {
           var option = document.createElement("option");
+          console.log(stagesDispo);
           option.text = stagesDispo[i].nomEntreprise;
           option.value = stagesDispo[i]._id;
           //console.log(option.value)
