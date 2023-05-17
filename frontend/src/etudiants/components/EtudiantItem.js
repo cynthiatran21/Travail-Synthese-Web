@@ -11,6 +11,7 @@ const EtudiantItem = (props) => {
 
   const [assignationFonctionne, setAssignationFonctionne] = useState(true);
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
 
   const [stagesDispo, setStagesDispo] = useState([]);
   const [longueur, setLongueur] = useState(0);
@@ -55,13 +56,10 @@ const EtudiantItem = (props) => {
               reponseData.stages[i].stagiaires.length <
               reponseData.stages[i].nbPostesDispo
             ) {
-              console.log("ENTRE DS IF")
               tabTemp.push(reponseData.stages[i]);
-              console.log(reponseData.stages[i]);
               longTemp++;
             }
           }
-
 
           setLongueur(longTemp);
           setStagesDispoReseau(tabTemp);
@@ -113,10 +111,9 @@ const EtudiantItem = (props) => {
           console.log("TEST_____________________________________");
           console.log(option);
           console.log(select);
-          console.log(option.value)
+          console.log(option.value);
           console.log("TEST______________________________________");
           select.add(option, undefined);
-          
         }
         setShowOnce(showOnce + 1);
       }
@@ -129,16 +126,11 @@ const EtudiantItem = (props) => {
     }
   }, [show, longueur, stagesDispo]);
 
-
-
-  
   const choixStageHandler = async (event) => {
-
     event.preventDefault();
 
     console.log("ID etudiant: " + props.cle);
     console.log("Stage: " + document.querySelector("#stage").value);
-
 
     try {
       const reponseData = await sendRequest(
@@ -154,9 +146,9 @@ const EtudiantItem = (props) => {
       );
       //setAjoutFonctionne(true);
       console.log(reponseData);
-      console.log("Fonctionne")
+      setAssignationFonctionne(true);
     } catch (err) {
-      //setAjoutFonctionne(false);
+      setAssignationFonctionne(false);
       console.log(err);
     }
   };
@@ -185,7 +177,24 @@ const EtudiantItem = (props) => {
             Assigner le stage à l'étudiant
           </Button>
         </form>
+
+        {assignationFonctionne
+       ?//<Modal title="Ajout réussi" onClose={() => setShow2(false)} show={show2}>
+          <p></p>
+          
+       //</Modal>
+
+       ://<Modal title="Ajout échoué" onClose={() => setShow2(false)} show={show2}>
+       <p>L'assignation a échoué. Veuillez contacter le superviseur des stages Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca</p>
+        //</Modal>
+      }
+
       </Modal>
+
+
+
+
+
     </React.Fragment>
   );
 };
