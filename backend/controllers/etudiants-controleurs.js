@@ -60,20 +60,14 @@ const getEtudiants = async (requete, reponse, next) => {
 
 const assignerStage = async (requete, reponse, next) => {
   const {
-    nomContact,
-    courrielContact,
-    nomEntreprise,
-    adresseEntreprise,
-    typeStage,
-    nbPostesDispo,
-    description,
+    idStage,
+    idEtudiant
   } = requete.body;
-  const etudiantId = requete.params.etudiantId;
 
   let etudiant;
 
   try {
-    etudiant = await Etudiant.findById(etudiantId);
+    etudiant = await Etudiant.findById(idEtudiant);
   } catch {
     return next(new HttpErreur("L'étudiant n'existe pas", 500));
   }
@@ -84,13 +78,7 @@ const assignerStage = async (requete, reponse, next) => {
     } else {
       let stage;
       stage = await Stage.findOne({
-        nomContact: nomContact,
-        courrielContact: courrielContact,
-        nomEntreprise: nomEntreprise,
-        adresseEntreprise: adresseEntreprise,
-        typeStage: typeStage,
-        nbPostesDispo: nbPostesDispo,
-        description: description,
+        _id:idStage
       });
 
       if (stage.nbPostesDispo > stage.stagiaires.length) {

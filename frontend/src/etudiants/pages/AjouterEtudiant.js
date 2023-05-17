@@ -76,7 +76,7 @@ const AjouterEtudiant = () => {
         <Input
           id="noDA"
           element="input"
-          type="text"
+          type="number"
           label="Numéro de DA de l'étudiant: "
           validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(9), VALIDATOR_MAXLENGTH(9)]}
           errorText="Entrez un numéro de DA valide."
