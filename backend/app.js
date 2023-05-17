@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 
 const stagesRoute = require("./routes/stages-routes");
 const etudiantsRoute = require("./routes/etudiants-routes");
@@ -11,12 +11,12 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use((requete, reponse, next) =>{
+app.use((requete, reponse, next) => {
   reponse.setHeader("Access-Control-Allow-Origin", "*");
   reponse.setHeader("Access-Control-Allow-Headers", "*");
   reponse.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
   next();
-})
+});
 
 app.use("/api/stages", stagesRoute);
 app.use("/api/etudiants", etudiantsRoute);
@@ -36,11 +36,11 @@ app.use((error, requete, reponse, next) => {
 });
 
 mongoose
-.connect("mongodb://127.0.0.1:27017")
-.then(() => {
-    app.listen(5000)
+  .connect("mongodb://127.0.0.1:27017")
+  .then(() => {
+    app.listen(5000);
     console.log("Connexion à la base de données réussie");
-})
-.catch(erreur => {
+  })
+  .catch((erreur) => {
     console.log(erreur);
-});
+  });

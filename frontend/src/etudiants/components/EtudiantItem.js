@@ -32,10 +32,8 @@ const EtudiantItem = (props) => {
     },
     true
   );
+  
   const [showOnce, setShowOnce] = useState(0);
-
-  //const x = document.querySelector("#stage");
-  //const select = document.querySelector('select'); 
   const selectRef = useRef();
 
   useEffect(() => {
