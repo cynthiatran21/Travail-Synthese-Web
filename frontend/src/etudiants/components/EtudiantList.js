@@ -22,6 +22,7 @@ function EtudiantList ({etudiantsDispo, longueur}) {
         <Card key={index}>
           <EtudiantItem
             key={etu.id}
+            cle={etu._id}
             noDA={etu.noDA}
             nomEtudiant={etu.nomEtudiant}
             courrielEtudiant={etu.courrielEtudiant}

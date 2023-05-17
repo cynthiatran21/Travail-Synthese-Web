@@ -98,13 +98,15 @@ const EtudiantItem = (props) => {
         for (let i = 0; i < longueur; i++) {
           var option = document.createElement("option");
           option.text = stagesDispo[i].nomEntreprise;
-          //option.value = stagesDispo[i];
+          option.value = stagesDispo[i]._id;
           //console.log(option.value)
           console.log("TEST_____________________________________");
           console.log(option);
           console.log(select);
+          console.log(option.value)
           console.log("TEST______________________________________");
           select.add(option, undefined);
+          
         }
         setShowOnce(showOnce + 1);
       }
@@ -124,10 +126,10 @@ const EtudiantItem = (props) => {
     //assigner le stage a letudiant : ajouter l'etudiant a la liste de stagiaires, ajouter le stage a l'etudiant
 
     event.preventDefault();
-    console.log(formState.inputs); // send this to the backend!
+    //console.log(formState.inputs);
 
-    console.log("BLABLA__________________________________")
-    console.log(document.querySelector("#stage").value)
+    console.log("ID etudiant: " + props.cle);
+    console.log("Stage: " + document.querySelector("#stage").value);
 
     //formState.inputs.profilSortie.value = document.querySelector("#profilSortie").value;
 
