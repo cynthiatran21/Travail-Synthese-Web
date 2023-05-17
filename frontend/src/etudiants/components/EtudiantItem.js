@@ -100,19 +100,10 @@ const EtudiantItem = (props) => {
     if (show && showOnce < 1) {
       const select = selectRef.current;
       if (select) {
-        console.log(longueur);
-        console.log(showOnce);
         for (let i = 0; i < longueur; i++) {
           var option = document.createElement("option");
-          console.log(stagesDispo);
           option.text = stagesDispo[i].nomEntreprise;
           option.value = stagesDispo[i]._id;
-          //console.log(option.value)
-          console.log("TEST_____________________________________");
-          console.log(option);
-          console.log(select);
-          console.log(option.value);
-          console.log("TEST______________________________________");
           select.add(option, undefined);
         }
         setShowOnce(showOnce + 1);
@@ -129,9 +120,6 @@ const EtudiantItem = (props) => {
   const choixStageHandler = async (event) => {
     event.preventDefault();
 
-    console.log("ID etudiant: " + props.cle);
-    console.log("Stage: " + document.querySelector("#stage").value);
-
     try {
       const reponseData = await sendRequest(
         "http://localhost:5000/api/etudiants",
@@ -144,8 +132,6 @@ const EtudiantItem = (props) => {
           "Content-Type": "application/json",
         }
       );
-      //setAjoutFonctionne(true);
-      console.log(reponseData);
       setAssignationFonctionne(true);
     } catch (err) {
       setAssignationFonctionne(false);
@@ -178,23 +164,15 @@ const EtudiantItem = (props) => {
           </Button>
         </form>
 
-        {assignationFonctionne
-       ?//<Modal title="Ajout réussi" onClose={() => setShow2(false)} show={show2}>
+        {assignationFonctionne ? (
           <p></p>
-          
-       //</Modal>
-
-       ://<Modal title="Ajout échoué" onClose={() => setShow2(false)} show={show2}>
-       <p>L'assignation a échoué. Veuillez contacter le superviseur des stages Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca</p>
-        //</Modal>
-      }
-
+        ) : (
+          <p>
+            L'assignation a échoué. Veuillez contacter le superviseur des stages
+            Sylvain Labranche : sylvain.labranche@cmontmorency.qc.ca
+          </p>
+        )}
       </Modal>
-
-
-
-
-
     </React.Fragment>
   );
 };

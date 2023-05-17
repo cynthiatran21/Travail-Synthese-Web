@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Accueil.css"
+import "../styles/Accueil.css";
 function Accueil() {
   return (
     <div className="accueil">

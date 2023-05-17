@@ -1,12 +1,9 @@
-import React from 'react';
+import React from "react";
 import "./Modal.css";
 
-const Modal = props => {
-  if (props.show === false){
-    //console.log("entre ds false")
-    return <div>
-      
-    </div>
+const Modal = (props) => {
+  if (props.show === false) {
+    return <div></div>;
   } else {
     return (
       <div className="modal">
@@ -16,11 +13,14 @@ const Modal = props => {
           </div>
           <div className="modal-body">{props.children}</div>
           <div className="modal-footer">
-            <button onClick={props.onClose} className="button">Fermer</button>
+            <button onClick={props.onClose} className="button">
+              Fermer
+            </button>
           </div>
         </div>
       </div>
-    );}
+    );
+  }
 };
 
 export default Modal;

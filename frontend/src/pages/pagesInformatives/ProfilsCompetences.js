@@ -40,36 +40,38 @@ function ProfilsCompetences() {
           que:
         </li>
         <ul>
-        <li>
-          l’installation et la gestion des serveurs et des clients Microsoft et
-          Linux
-        </li>
-        <li>
-          la configuration, l’installation et la gestion d’un serveur Web ou de
-          courrier
-        </li>
-        <li>le déploiement d’un système et d’une application client</li>
-        <li>la mise en place de la sécurité des systèmes informatiques</li>
-        <li>
-          l’utilisation des techniques pour tester et sécuriser les équipements
-          informatiques
-        </li>
-        <li>le déploiement des environnements virtuels et de l’infonuagique</li>
-        <li>
-          la résolution de problèmes de réseaux sur les équipements
-          informatiques
-        </li>
-        <li>préparation à la certification CEH (Certified Ethical Hacker)</li>
+          <li>
+            l’installation et la gestion des serveurs et des clients Microsoft
+            et Linux
+          </li>
+          <li>
+            la configuration, l’installation et la gestion d’un serveur Web ou
+            de courrier
+          </li>
+          <li>le déploiement d’un système et d’une application client</li>
+          <li>la mise en place de la sécurité des systèmes informatiques</li>
+          <li>
+            l’utilisation des techniques pour tester et sécuriser les
+            équipements informatiques
+          </li>
+          <li>
+            le déploiement des environnements virtuels et de l’infonuagique
+          </li>
+          <li>
+            la résolution de problèmes de réseaux sur les équipements
+            informatiques
+          </li>
+          <li>préparation à la certification CEH (Certified Ethical Hacker)</li>
         </ul>
-        </ul>
-        
-        <br></br>
-        
-        <h3>
-          Nos étudiant en Développement d'applications informatiques ont suivi
-          des cours leur permettant de:
-        </h3>
-        <ul>
+      </ul>
+
+      <br></br>
+
+      <h3>
+        Nos étudiant en Développement d'applications informatiques ont suivi des
+        cours leur permettant de:
+      </h3>
+      <ul>
         <li>participer à l’analyse des systèmes à implanter</li>
         <li>
           {" "}
@@ -101,20 +103,22 @@ function ProfilsCompetences() {
           que:
         </li>
         <ul>
-        <li>la programmation structurée et orientée objet et Web dynamique</li>
-        <li> les bases de données</li>
-        <li> l’installation et la configuration de logiciels</li>
-        <li>
-          {" "}
-          les composantes matérielles de l’ordinateur, leur installation et leur
-          configuration
-        </li>
-        <li> les systèmes d’exploitation (Windows et Linux)</li>
-        <li> les méthodologies Agile telles que SCRUM</li>
-        <li> le développement pour plateforme mobile</li>
-        <li> l’assurance qualité logiciel</li>
+          <li>
+            la programmation structurée et orientée objet et Web dynamique
+          </li>
+          <li> les bases de données</li>
+          <li> l’installation et la configuration de logiciels</li>
+          <li>
+            {" "}
+            les composantes matérielles de l’ordinateur, leur installation et
+            leur configuration
+          </li>
+          <li> les systèmes d’exploitation (Windows et Linux)</li>
+          <li> les méthodologies Agile telles que SCRUM</li>
+          <li> le développement pour plateforme mobile</li>
+          <li> l’assurance qualité logiciel</li>
         </ul>
-        </ul>
+      </ul>
     </div>
   );
 }

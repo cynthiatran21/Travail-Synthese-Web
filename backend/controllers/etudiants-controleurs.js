@@ -59,10 +59,7 @@ const getEtudiants = async (requete, reponse, next) => {
 };
 
 const assignerStage = async (requete, reponse, next) => {
-  const {
-    idStage,
-    idEtudiant
-  } = requete.body;
+  const { idStage, idEtudiant } = requete.body;
 
   let etudiant;
 
@@ -78,7 +75,7 @@ const assignerStage = async (requete, reponse, next) => {
     } else {
       let stage;
       stage = await Stage.findOne({
-        _id:idStage
+        _id: idStage,
       });
 
       if (stage.nbPostesDispo > stage.stagiaires.length) {

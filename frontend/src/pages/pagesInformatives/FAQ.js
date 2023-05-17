@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/PagesInformatives.css"
+import "../../styles/PagesInformatives.css";
 
 function FAQ() {
   return (
@@ -10,12 +10,12 @@ function FAQ() {
         Le stage de fin d'études en informatique est obligatoire pour
         l'obtention du diplôme collgégial.
       </p>
-<br></br>
+      <br></br>
       <h3>Quel est l'horaire de l'étudiant durant les stages?</h3>
       <p>
         L'étudiant doit respecter l'horaire de l'entreprise durant son stage.
       </p>
-<br></br>
+      <br></br>
       <h3>
         Est-ce que l'étudiant travaille pendant les journées pédagogiques et les
         journées de rattrapage?
@@ -24,13 +24,13 @@ function FAQ() {
         L'étudiant doit respecter l'horaire de l'entreprise durant son stage et
         ce même durant les journées pédagogiques et de rattrapage.
       </p>
-<br></br>
+      <br></br>
       <h3>Quelle est la durée d'un stage de fin d'études?</h3>
       <p>
         La durée du stage est de 15 semaines pour les deux profils de sortie
         (réseaux et programmation).
       </p>
-<br></br>
+      <br></br>
       <h3>Quelles sont les dates prévues pour les stages?</h3>
       <p>Les stages sont prévus du 21 janvier au 3 mai 2019. </p>
     </div>
