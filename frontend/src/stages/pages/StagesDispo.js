@@ -23,7 +23,7 @@ const StagesDispo = () => {
           document.querySelector("#typeStage").value === "Réseaux et sécurité"
         ) {
           const reponseData = await sendRequest(
-            "http://localhost:5000/api/stages/Réseaux et sécurité"
+            process.env.REACT_APP_BACKEND_URL + "/stages/Réseaux et sécurité"
           );
 
           let long = reponseData.stages.length;

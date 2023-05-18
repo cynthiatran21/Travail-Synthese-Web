@@ -42,7 +42,7 @@ const EtudiantItem = (props) => {
 
         if (props.profilSortie === "Réseaux et sécurité") {
           const reponseData = await sendRequest(
-            "http://localhost:5000/api/stages/Réseaux et sécurité"
+            process.env.REACT_APP_BACKEND_URL + "/stages/Réseaux et sécurité"
           );
 
           let long = reponseData.stages.length;
@@ -66,7 +66,7 @@ const EtudiantItem = (props) => {
           setStagesDispo(stagesDispoReseau);
         } else if (props.profilSortie === "Développement d'applications") {
           const reponseData = await sendRequest(
-            "http://localhost:5000/api/stages/Développement d'application"
+            process.env.REACT_APP_BACKEND_URL + "stages/Développement d'application"
           );
 
           let long = reponseData.stages.length;
@@ -122,7 +122,7 @@ const EtudiantItem = (props) => {
 
     try {
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/etudiants",
+        process.env.REACT_APP_BACKEND_URL +  "/etudiants",
         "PATCH",
         JSON.stringify({
           idStage: document.querySelector("#stage").value,

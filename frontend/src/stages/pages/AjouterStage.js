@@ -71,7 +71,7 @@ const AjouterStage = () => {
         document.querySelector("#remuneration").value;
 
       const reponseData = await sendRequest(
-        "http://localhost:5000/api/stages",
+        process.env.REACT_APP_BACKEND_URL + "/stages",
         "POST",
         JSON.stringify({
           nomContact: formState.inputs.nomContact.value,
