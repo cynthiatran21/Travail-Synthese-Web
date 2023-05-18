@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Travail-Synthese-Web/static/css/main.dcc93b15.css",
+    "main.js": "/Travail-Synthese-Web/static/js/main.e5957688.js",
+    "static/media/logo_momo.png": "/Travail-Synthese-Web/static/media/logo_momo.46701de3be1adf733c05.png",
+    "index.html": "/Travail-Synthese-Web/index.html",
+    "main.dcc93b15.css.map": "/Travail-Synthese-Web/static/css/main.dcc93b15.css.map",
+    "main.e5957688.js.map": "/Travail-Synthese-Web/static/js/main.e5957688.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcc93b15.css",
+    "static/js/main.e5957688.js"
+  ]
+}
